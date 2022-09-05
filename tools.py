@@ -43,14 +43,13 @@ def DescargarLog(hostname,ip,user,passwd):
 def ProcesarLog(hostname,log):
 	data = []
 	hostname = hostname.split(".")[0]
-
 	find_to = re.compile(r'.*to=<([a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+)>')
 	find_from = re.compile(r'.*from=<([a-zA-Z0-9-_.]+@[a-zA-Z0-9-_.]+)>')
 	find_message_id = re.compile(r'.*message-id=<(.*)>')
 	find_status = re.compile(r'.*status=([a-zA-Z0-9-_.]+) (.*)?')
 	find_relay = re.compile(r'.*relay=([a-zA-Z0-9-._]+)\[(.*)\]:([0-9]+)')
 	find_client = re.compile(r'.*client=([a-zA-Z0-9-._]+)\[(.*)\]')
-	find_date = re.compile(r'\w[\w.]+\s+\d.\s.\d.\d..\d.')
+	#find_date = re.compile(r'\w[\w.]+\s+\d.\s.\d.\d..\d.')
 	
 	with open('Logs/'+hostname+"/"+log,"r") as f:
 
@@ -62,18 +61,11 @@ def ProcesarLog(hostname,log):
 			if(mline.find("status=") > -1):
 				#print(mline)
 				lm = {}
-				date = find_date.match(mline)
+				
 				to = find_to.match(mline)
 				status = find_status.match(mline)
 				relay = find_relay.match(mline)
-
-				if date != None: 
-					date = date.group(0)
-					date = str(dateparser.parse(date)) #datetime.strptime(date,"")
-				
-				if date == None:
-					date = "N/A"
-  
+				date = str(dateparser.parse(mline.split(hostname)[0].strip()))
 				if status != None : 
 					status = status.group(1)
 				else:
