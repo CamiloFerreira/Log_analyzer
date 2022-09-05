@@ -1,0 +1,109 @@
+{% extends './layout.html' %}
+
+
+{% block div %}
+	<script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/chart_view.js')}}"></script>
+	<script type="text/javascript">
+		function load_function() {
+			viewChart({{dic | tojson}})
+		}
+		window.onload = load_function
+	</script>
+	<div class="row" style="height: 1000px;">
+		
+
+		<!-- Mini dashboard de estados -->
+		<div class="col-12">
+			
+			<div class="row ml-2">
+				{% for status in count %}
+					<div class="card" style="width: 19rem;">
+  						<div class="card-body" id='{{status.lower()}}'>
+    						<h6 class="card-subtitle mb-2 text-muted">{{status.capitalize()}}</h6>
+    						<p class="card-text text-center display-4" >{{count[status]}}</p>
+  						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<br>
+		</div>
+
+		<!--- Grafico -->
+		<div class="col-12" id="cont_chart">
+			<canvas id="chart" style="width:100%;max-height:200px;"></canvas>	
+		</div>
+
+		<!--- Opciones --->
+		<div class="col-12">
+			
+		</div>
+
+		<!-- Mini formulario buscador -->
+		<div class="col-12">
+			
+				<form action="javascript:void(0)">
+
+				<div class="form-group">
+					
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control"  type="text" name="search" placeholder="Ingresa texto">
+						</div>
+
+						<div class="col">
+							<select class="form-control custom-select" onchange="filtrar(this)">
+								<option value="default">Seleccione estado</option>
+								<option value="sent">Sent</option>
+								<option value="deferred">Deferred</option>
+								<option value="bounced">Bounced</option>
+								<option value="unknown">Unknown</option>
+							</select>							
+						</div>
+
+						<div class="col">
+							<button id="reload" onclick="update()" class="btn btn-success"><i class="icon ion-md-refresh"></i> Recargar logs</button>
+						</div>
+					</div>
+				
+				</div>
+
+			</form>
+
+		</div>
+		<div class="col-12">
+			<div id="alerta">
+			</div>
+
+		</div>
+		<!--- Tabla de contenidos -->
+		<div class="col-12">
+			
+			<div class="scroll">
+
+				<table class="table table-bordered table-hover" >
+					<thead class="thead-dark">
+						<tr>
+							{% for key in dic[0] %}
+								<th space="col">{{key}} </th>
+							{% endfor %}
+											
+						</tr>
+					</thead>
+					
+					<tbody id="dataBody" >
+						{% for item in dic %}
+							<tr class="{{item['Status']}}">
+								{% for key in item %}
+									<td > {{ item[key]  }} </td>
+								{% endfor %}
+							</tr>
+					    {% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<br>
+	</div>
+{% endblock %}

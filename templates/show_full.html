@@ -1,0 +1,71 @@
+{% extends './layout.html' %}
+
+
+{% block div %}
+
+	<script type="text/javascript" src="{{url_for('static',filename='js/log_full.js')}}"></script>
+	<style type="text/css">
+		@font-face{
+			font-family: consola;
+			src : url("{{url_for('static',filename='fonts/Inconsolata.ttf')}}")
+		}
+
+		#log_full{
+			font-family: consola;
+		}
+	</style>
+
+	<div class="row">
+		
+
+		<div class="col-12">
+				
+			<div class="row">
+					
+				<div class="col">
+						
+					<span>Dominio del servidor:</span>
+						<select id="sel_serv"class="form-control" onchange="cambiar(this)">
+								{% for i in range( data | length )  %}
+									<option value="{{i}}"  >{{data[i]['Hostname']}}</option>
+								{% endfor %}
+						</select>	
+				</div>
+
+				<div class="col">
+					<span>Log a revisar : </span>
+					<select id="sel_log"class="form-control" onchange="cambiar_log(this)">
+						{% for i  in range(file_list | length) %}
+							<option value="{{i}}">{{file_list[i]}}</option>
+						{% endfor %} 
+					</select>	
+				</div>
+				<div class="col-2">
+					<span>Lineas a cargar : </span>
+					<select id="lines"class="form-control" onchange="cargar_mas(this)">
+						<option value="100">100</option>
+						<option value="200">200</option>
+						<option value="300">300</option>
+						<option value="400">400</option>
+						<option value="500">500</option>
+						<option value="600">600</option>
+						<option value="all">Todo</option>
+					</select>	
+				</div>
+			</div>
+
+		</div>
+		<div class="mt-3 col-12">
+			<div id="alerta">
+				
+			</div>
+		</div>
+		<div id="log_full" class="mt-3 col-12 scroll" >
+			<table class="table" >
+			<tbody id="tbody">			
+			</tbody>
+			</table>
+	
+		</div>
+	</div>
+{% endblock %}
