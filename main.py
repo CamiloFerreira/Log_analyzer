@@ -1,5 +1,6 @@
+from operator import truediv
+from socket import INADDR_ALLHOSTS_GROUP
 from flask import Flask,render_template,request,redirect
-from werkzeug import exceptions
 from datetime import datetime
 from tools import *
 import json,os,dateparser
@@ -9,7 +10,19 @@ app = Flask(__name__)
 
 @app.route('/updateLog',methods=['POST'])
 def updateLog():
-
+	"""
+		Descarga y actualiza los logs, esta funcion
+		puede ser llamada desde el index o en el view_log
+  
+		para el caso del index
+	
+		id[] -> obtendra un lista por post, lista de los indices para descargar los logs
+  
+		para el caso de view_log
+  
+		id -> obtendra un int , para descargar solamente los logs de un "Hostname"
+	
+ 	"""
 	with open('hosts.json','r') as file:
 		data = json.load(file)
 	r = request.form
@@ -20,7 +33,6 @@ def updateLog():
 		for val in r.getlist('id[]'):
 			val = int(val)
 			DescargarLog(data[val]['Hostname'],data[val]['IP'],data[val]['User'],data[val]['Pass'])
-			
 			date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
 			date = str(dateparser.parse(date))
 
@@ -35,7 +47,8 @@ def updateLog():
 		try :
 			### Comprueba que sea un numero
 			pos = int(r['id'])
-
+			log_id = int(r['id_log'])
+   
 			DescargarLog(data[pos]['Hostname'],data[pos]['IP'],data[pos]['User'],data[pos]['Pass'])
 
 			hostname = data[pos]['Hostname']
@@ -44,7 +57,7 @@ def updateLog():
 			
 
 			contenido = os.listdir("Logs/"+hostname+"/")
-			log_data = ProcesarLog(data[pos]['Hostname'],'mail.log')
+			log_data = ProcesarLog(data[pos]['Hostname'],contenido[log_id])
 			count_status = CountStatus(log_data)
 
 
@@ -97,6 +110,36 @@ def addDomain():
 		json.dump(data,file,indent=4)
 	return redirect("/")
 
+@app.route("/selLog",methods=["POST"])
+def selLog():
+    '''
+		Funcion que retorna el log seleccionado,
+		Esta funcion siendo llamada en el onchange de "sel_log"
+  
+		log_id -> posicion del log a seleccionar
+		id -> posicion del hostname a seleccionar
+    
+    '''
+    r = request.form
+    try:
+        log_id = int(r['log_id'])
+        pos  = int(r['id'])
+        hostname = data[pos]['Hostname']
+        if(len(hostname.split(".")) > 1): 
+            hostname = hostname.split(".")[0]
+        
+        contenido = os.listdir("Logs/"+hostname+"/")
+        log_data = ProcesarLog(data[pos]['Hostname'],contenido[log_id])
+        count_status = CountStatus(log_data)        
+        
+        return {'success':'OK','status':200,'count':count_status,'data':log_data} 
+    except (ValueError or Exception) as e :
+        return {'success':'Error','status':400,'data':'NULL'} 
+    
+    
+    
+    
+
 
 @app.route('/view', methods=['GET'])
 def view():
@@ -124,10 +167,14 @@ def view():
 	log_data = ProcesarLog(data[pos]['Hostname'],'mail.log')
 	count_status = CountStatus(log_data)
 
-	return render_template('view_log.html',dic=log_data,count=count_status)#,dic=log_data,data=data,contenido=contenido)
+	return render_template('view_log.html',dic=log_data,count=count_status,log_list = contenido)#,dic=log_data,data=data,contenido=contenido)
 
 @app.route("/showLog")
 def showLogFull():
+	"""
+		Funcion para cargar show_full.html
+		Carga los logs sin ningun tipo de filtro
+	"""
 	with open('hosts.json','r') as file:
 		data = json.load(file)	
 
@@ -143,7 +190,15 @@ def showLogFull():
 
 @app.route("/getLog",methods=['POST'])	
 def getLog():
+	"""
+	Funcion que retorna la lista de logs existentes de un hostname
+    que fue descargado 
 
+	Returns:
+		data : contiene la lista de logs de ese host 
+	"""
+	with open('hosts.json','r') as file:
+		data = json.load(file)	
 	r = request.form
 	pos =int(r['id'])
 	pos_file = int(r['log'])

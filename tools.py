@@ -67,11 +67,13 @@ def ProcesarLog(hostname,log):
 				status = find_status.match(mline)
 				relay = find_relay.match(mline)
 
-
 				if date != None: 
 					date = date.group(0)
 					date = str(dateparser.parse(date)) #datetime.strptime(date,"")
-					
+				
+				if date == None:
+					date = "N/A"
+  
 				if status != None : 
 					status = status.group(1)
 				else:
@@ -86,7 +88,7 @@ def ProcesarLog(hostname,log):
 					relay = relay.group(1)
 				else:
 					relay = "Unknow"
-
+				
 				lm['Date'] = date
 				lm['To'] = to
 				lm['Status'] = status
