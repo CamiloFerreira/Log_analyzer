@@ -9,9 +9,61 @@
     		min-height: 25vw;
 		}
 	</style>
-	<div class="row">
-		
+	<!--- Modal alerta --->
 
+	<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	       		<h4 class="modal-title">Agregar nuevo "Sender" </h4>
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+	      </div>
+
+	      <div class="modal-body">
+	        	<p>Debes llenar los siguientes datos!</p>
+			<form action="{{ url_for('addDomain') }}" method="POST">
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Dominio del servidor</label>
+			    <input type="text" class="form-control"  name="hostname" placeholder="smtp.example.com" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Desde : </label>
+			    <input type="text" class="form-control"  name="hostname" placeholder="User <user@example.com>" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Usuario</label>
+			    <input type="text" class="form-control" name="user" placeholder="user@example.com" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Contraseña</label>
+			    <input type="password" class="form-control" name="password" placeholder="Ingresa tu clave" required>
+			  </div>
+			  <div id="alerta">
+			  	
+			  </div>
+			  <button type="submit" id="submit" class="btn btn-success float-right" disabled>Guardar</button>
+
+			</form>
+			  <button onclick="test()" id="test" class="btn btn-danger float-right mr-2"> Correo de prueba</button>
+	      </div>
+
+	    </div>
+
+	  </div>
+
+	</div>
+	<script type="text/javascript">
+		$("#myModal").modal("show");
+	</script>
+
+
+	<!--- Contenido principal --->
+	<div class="row">
 		<div class="col-12">
 
 			<form id="form-mail" method="POST">
@@ -36,7 +88,7 @@
 			  	</div>
 			    
 			   	<div class="col">
-			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="Administrador <administrador@mailercyber2.com" required>
+			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="Administrador <administrador@mailercyber2.com>" required>
 			   	</div>
 			    
 			  </div>
@@ -59,7 +111,11 @@
 			    	<input type="text" id="asunto" class="form-control" name="ip" placeholder="Inserta asunto" required>
 			    </div>
 			  </div>
-
+			  <div class="form-group">
+			  	<div id="alerta">
+			  		
+			  	</div>
+			  </div>
 			  <div class="form-group">
 			  	<div id="editor">
 			  		
