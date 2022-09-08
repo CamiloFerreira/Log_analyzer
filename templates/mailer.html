@@ -4,20 +4,49 @@
 {% block div %}
 	<script type="text/javascript"  src="{{url_for('static',filename='js/send_mail.js')}}"></script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
-
+	<style type="text/css">
+		.ck-editor__editable:not(.ck-editor__nested-editable) { 
+    		min-height: 25vw;
+		}
+	</style>
 	<div class="row">
 		
 
 		<div class="col-12">
 
-			<form action="" method="POST">
+			<form id="form-mail" method="POST">
+			  <div class="form-group row">
+			  	<div class="col-2">
+			  		<label >Servidor de envio:</label>	
+			  	</div>
+			    
+			   	<div class="col">
+			   		<select>
+			   			<option>Servidor 1</option>
+			   			<option>Servidor 1</option>
+			   			<option>Servidor 1</option>
+			   			<option>Servidor 1</option>
+			   		</select>
+			   	</div>
+			    
+			  </div>
+			  <div class="form-group row">
+			  	<div class="col-1">
+			  		<label >Desde:</label>	
+			  	</div>
+			    
+			   	<div class="col">
+			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="Administrador <administrador@mailercyber2.com" required>
+			   	</div>
+			    
+			  </div>
 			  <div class="form-group row">
 			  	<div class="col-1">
 			  		<label >Destinatarios:</label>	
 			  	</div>
 			    
 			   	<div class="col">
-			   		<input type="email" id="to" class="form-control" name="password" placeholder="user@example.cl" required>
+			   		<input type="email" id="to" class="form-control" name="password" placeholder="user@example.cl"  required>
 			   	</div>
 			    
 			  </div>
@@ -32,27 +61,14 @@
 			  </div>
 
 			  <div class="form-group">
-			  	<textarea type="text" name="txtDescripcion" id="txtDescripcion"></textarea> 
+			  	<div id="editor">
+			  		
+			  	</div>
 
 			  </div>
-			  <button type="submit" id="submit" onclick="sendMail()" class="btn btn-success float-right">Enviar</button>
-
 			</form>
-
+			<button  id="submit" class="btn btn-success float-right">Enviar</button>
 		</div>
 	</div>
-
-
-<script type="text/javascript">
-ClassicEditor
-    .create( document.querySelector( '#txtDescripcion' ) )
-    .catch( error => {
-        console.error( error );
-    } );
-		
-		
-</script>
-
-
 
 {% endblock %}
