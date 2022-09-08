@@ -1,5 +1,4 @@
-import smtplib,ssl,random,pytracking,base64,io
-from tqdm import tqdm
+import smtplib,ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
@@ -17,12 +16,10 @@ html = '''
 	
 	</html>
 '''
+def enviarCorreo():
 
 
-server = smtplib.SMTP(host="smtp.mail-test.tk",port=587)
-server.ehlo()
-server.starttls()
-server.login("contacto@mail-test.k","Cyber4775.")
+
 
 aCorreos = ['warex75151@vpsrec.com']
 

@@ -3,7 +3,12 @@ from socket import INADDR_ALLHOSTS_GROUP
 from flask import Flask,render_template,request,redirect
 from datetime import datetime
 from tools import *
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import json,os,dateparser
+import smtplib,ssl
+
+
 #
 
 app = Flask(__name__)
@@ -137,9 +142,27 @@ def selLog():
         return {'success':'Error','status':400,'data':'NULL'} 
     
     
-    
-    
+@app.route("/sendMail",methods=["POST"])
+def sendMail():
 
+	r = request.form  
+
+	server = smtplib.SMTP(host="smtp.mailercyber2.com",port=587)
+	server.ehlo()
+	server.starttls()
+	server.login("contacto@mailercyber2.com","Cyber4775.")  
+    
+	msg = MIMEMultipart('alternative')
+	msg['Subject'] = r['subject']
+	msg['From'] = r['from']
+	part1 = MIMEText(r['content'],'html')
+	msg.attach(part1)
+	msg['To'] = r['to']
+	server.sendmail(msg['From'],r['to'],msg.as_string())
+
+
+
+	return {'success':'OK','status':200,'data':r} 
 
 @app.route('/view', methods=['GET'])
 def view():
@@ -230,10 +253,9 @@ def home():
 
 	return render_template('index.html',first=firstExecution, count=count,data=data)
 
-@app.route("/dashboard")
-def dashboard():
-	log_data = ProcesarLog(data[0]['Hostname'],'mail.log')
-	return render_template('dashboard.html',log_data=log_data)
+@app.route("/mailer")
+def mailer():
+	return render_template('mailer.html')
 
 
 if  __name__=="__main__":	
