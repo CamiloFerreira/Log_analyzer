@@ -17,7 +17,7 @@
 			
 			<div class="row ml-2">
 				{% for status in count %}
-					<div class="card" style="width: 19rem;">
+					<div class="card" style="width: 15rem;">
   						<div class="card-body" id='{{status.lower()}}'>
     						<h6 class="card-subtitle mb-2 text-muted">{{status.capitalize()}}</h6>
     						<p class="card-text text-center display-4" >{{count[status]}}</p>
@@ -51,6 +51,9 @@
 								<option value="sent">Sent</option>
 								<option value="deferred">Deferred</option>
 								<option value="bounced">Bounced</option>
+								<option value="rejected">Rejected</option>
+								<option value="user unknown">User unknown</option>
+								<option value="host unknown">Host unknown</option>
 								<option value="unknown">Unknown</option>
 							</select>							
 						</div>
@@ -67,6 +70,9 @@
 
 						<div class="col">
 							<button id="reload" onclick="update()" class="btn btn-success"><i class="icon ion-md-refresh"></i> Recargar logs</button>
+						</div>
+						<div class="col">
+							<button class="btn btn-success"> Descargar CSV</button>
 						</div>
 					</div>
 				

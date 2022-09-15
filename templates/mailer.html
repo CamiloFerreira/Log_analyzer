@@ -9,57 +9,71 @@
     		min-height: 25vw;
 		}
 	</style>
+
+
 	<!--- Modal alerta --->
-
-	<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
-
+	{% if first == True %}
+		<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+	{% else %}
+		<div id="myModal" class="modal fade" role="dialog">
+	{% endif %}
 	  <div class="modal-dialog">
 
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
 	       		<h4 class="modal-title">Agregar nuevo "Sender" </h4>
+
+	       		{% if first == False %}
  				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           			<span aria-hidden="true">&times;</span>
         		</button>
+        		{% endif %}
 	      </div>
 
 	      <div class="modal-body">
 	        	<p>Debes llenar los siguientes datos!</p>
-			<form action="{{ url_for('addDomain') }}" method="POST">
+
+	        	
+			<form action="{{ url_for('addSMTP') }}" method="POST">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Dominio del servidor</label>
-			    <input type="text" class="form-control"  name="hostname" placeholder="smtp.example.com" required>
+			    <input type="text" class="form-control"  name="hostname" id="smtp" placeholder="smtp.example.com" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Desde : </label>
-			    <input type="text" class="form-control"  name="hostname" placeholder="User <user@example.com>" required>
+			    <input type="text" class="form-control"  name="from" id="from" placeholder="User <user@example.com>" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Usuario</label>
-			    <input type="text" class="form-control" name="user" placeholder="user@example.com" required>
+			    <input type="text" class="form-control" name="user" id="user" placeholder="user@example.com" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword1">Contraseña</label>
-			    <input type="password" class="form-control" name="password" placeholder="Ingresa tu clave" required>
+			    <input type="password" class="form-control" name="password" id="password" placeholder="Ingresa tu clave" required>
 			  </div>
-			  <div id="alerta">
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Correo de prueba (Opcional) </label>
+			    <input type="email" class="form-control" name="test_mail" id="test_mail" placeholder="example@hotmail.com">
+			  </div>
+			  <div id="alerta_2">
 			  	
 			  </div>
-			  <button type="submit" id="submit" class="btn btn-success float-right" disabled>Guardar</button>
+			  <button type="submit" id="save"  class="btn btn-success float-right" >Guardar</button>
 
 			</form>
-			  <button onclick="test()" id="test" class="btn btn-danger float-right mr-2"> Correo de prueba</button>
+			  <button id="test" class="btn btn-danger float-right mr-2"> Correo de prueba</button>
 	      </div>
 
 	    </div>
 
 	  </div>
-
 	</div>
+	{% if first == True %}
 	<script type="text/javascript">
 		$("#myModal").modal("show");
 	</script>
+	{% endif %}
 
 
 	<!--- Contenido principal --->
@@ -74,10 +88,9 @@
 			    
 			   	<div class="col">
 			   		<select>
-			   			<option>Servidor 1</option>
-			   			<option>Servidor 1</option>
-			   			<option>Servidor 1</option>
-			   			<option>Servidor 1</option>
+			   			{% for i in range( data | length) %}
+			   			<option>{{data[i]['hostname']}}</option>
+			   			{% endfor %}
 			   		</select>
 			   	</div>
 			    
@@ -88,7 +101,7 @@
 			  	</div>
 			    
 			   	<div class="col">
-			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="Administrador <administrador@mailercyber2.com>" required>
+			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="{{data[0]['from']}}" required>
 			   	</div>
 			    
 			  </div>

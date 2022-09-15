@@ -44,7 +44,6 @@ function filtrar(obj){
   */
 
 	var status = obj.value;
-	console.log(status)
 	
 	var tbody = $("#dataBody").find('tr')
 	
@@ -78,7 +77,7 @@ function update(){
 		data:{'id':id,'id_log':id_log},
 		type:'POST',
 		success: function(resp){
-			console.log(resp)
+			//console.log(resp)
 
 			if(resp['status'] == 200){
 				html = '<div class="alert alert-success" role="alert">'
@@ -90,8 +89,8 @@ function update(){
 
 				table_data = "" 
 				for(var i =0 ; i < data.length ; i++){
-					
-					table_data += "<tr class="+data[i]['Satus'] +">"
+					table_data += "<tr class='"+data[i]['Status'] +"'>"
+					console.log(table_data)
 					table_data += "<td>" + parserDate(data[i]['Date']) + "</td>"			
 					table_data += "<td>" + data[i]['To'] + "</td>"
 					table_data += "<td>" + data[i]['Status'] + "</td>"

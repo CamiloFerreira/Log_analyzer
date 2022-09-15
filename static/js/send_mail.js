@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function(){
     var myEditor ; 
     ClassicEditor
@@ -12,77 +9,128 @@ $(document).ready(function(){
         .catch( error => {
             console.error( error );
         } );
-        
-
-
-    $("#submit").click(function(){
+    $("#test").click(function(){   
+        id_alerta = "#alerta_2"
         send= true;
-        to = $("#to").val();
-        subject = $("#asunto").val();
-        text = myEditor.getData();
+        
+        smtp = $("#smtp").val()
         from = $("#from").val()
-
-        data = {'subject':subject,'from':from,"to":to,"content":text};
-   
+        user = $("#user").val()
+        pass = $("#password").val()
+        to = $("#test_mail").val()
+        subject = "Prueba de envio de correo - Log Analyzer"
+        text = "<h1> Felicidades !! </h1> <br> <p>Este correo ha llegado con exito , por favor sigue probando esta herramienta!!!.</p>"
+        
+        
+        data = {'host':smtp,'user':user,'password':pass,'subject':subject,'from':from,"to":to,"content":text};
+       
         for( col in data){
             if(data[col].length == 0){
                 send = false
             }
-        }
-
-        console.log(send)
-        
+        }   
         if(send){
-                $.ajax({
-                    url : "/sendMail",
-                    type:'POST',
-                    data : data,
-                    success : function(res){
-                        html = '<div class="alert alert-success" role="alert">'
-                        html += "Correo enviado! "
-                        html +='</div>' 
-                        $("#alerta").html(html)
-                       
-                    },
-                    error: function(err){
+            $.ajax({
+                url : "/sendMail_test",
+                type:'POST',
+                data : data,
+                success : function(res){
+                    
+                    html = '<div class="alert alert-success" role="alert">'
+                    html += "Correo enviado! "
+                    html +='</div>' 
+                    if( res['status'] == 'ERROR'){
                         html = '<div class="alert alert-danger" role="alert">'
-                        html += "Ha ocurrido un error :( "
+                        html += res['msj']
                         html +='</div>' 
-                        $("#alerta").html(html)
-                    },beforeSend:function(){
-
-                        html = '<div class="alert alert-warning" role="alert">'
-                        html +='<div class="spinner-border spinner-border-sm text-success" role="status">'
-                        html +=  '<span class="sr-only">Loading...</span>'
-                        html +='</div>'             
-                        html += " Enviando correo ... "
-                        html +='</div>'     
-                         $("#alerta").html(html)
+                                       
                     }
-                })
+
+                    $(id_alerta).html(html)
+                   
+                },
+                error: function(err){
+                    html = '<div class="alert alert-danger" role="alert">'
+                    html += "Ha ocurrido un error :( "
+                    html +='</div>' 
+                    $(id_alerta).html(html)
+                },beforeSend:function(){
+
+                    html = '<div class="alert alert-warning" role="alert">'
+                    html +='<div class="spinner-border spinner-border-sm text-success" role="status">'
+                    html +=  '<span class="sr-only">Loading...</span>'
+                    html +='</div>'             
+                    html += " Enviando correo ... "
+                    html +='</div>'     
+                     $("#alerta").html(html)
+                }
+            })
 
         }else{
             html = '<div class="alert alert-danger" role="alert">'
             html += "Debe llenar todos los datos antes de enviar!! "
             html +='</div>' 
-            $("#alerta").html(html)
+            $(id_alerta).html(html)
         }
-
-
-
-        })
-
-
-
-
-
-
-
-
-
-
+    })
 })
 
+
+
+function sendMail(id_alerta,myEditor){
+
+    send= true;
+    to = $("#to").val();
+    subject = $("#asunto").val();
+    text = myEditor.getData();
+    from = $("#from").val()
+    test_mail = $("#test_mail").val()
+    
+    data = {'subject':subject,'from':from,"to":to,"content":text};
+   
+    for( col in data){
+        if(data[col].length == 0){
+            send = false
+        }
+    }
+    data['test_mail'] = test_mail
+        
+    if(send){
+        $.ajax({
+            url : "/sendMail",
+            type:'POST',
+            data : data,
+            success : function(res){
+                html = '<div class="alert alert-success" role="alert">'
+                html += "Correo enviado! "
+                html +='</div>' 
+                $(id_alerta).html(html)
+               
+            },
+            error: function(err){
+                html = '<div class="alert alert-danger" role="alert">'
+                html += "Ha ocurrido un error :( "
+                html +='</div>' 
+                $(id_alerta).html(html)
+            },beforeSend:function(){
+
+                html = '<div class="alert alert-warning" role="alert">'
+                html +='<div class="spinner-border spinner-border-sm text-success" role="status">'
+                html +=  '<span class="sr-only">Loading...</span>'
+                html +='</div>'             
+                html += " Enviando correo ... "
+                html +='</div>'     
+                 $("#alerta").html(html)
+            }
+        })
+
+    }else{
+        html = '<div class="alert alert-danger" role="alert">'
+        html += "Debe llenar todos los datos antes de enviar!! "
+        html +='</div>' 
+        $(id_alerta).html(html)
+    }
+}
 
 
 

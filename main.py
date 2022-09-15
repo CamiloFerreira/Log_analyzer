@@ -1,10 +1,7 @@
 from flask import Flask,render_template,request,redirect
-from datetime import datetime
 from tools import *
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from datetime import datetime
 import json,os,dateparser
-import smtplib,ssl
 import cryptocode
 
 #------------------------
@@ -12,6 +9,9 @@ import cryptocode
 #------------------------
 app = Flask(__name__)
 key = "key_1"
+dir_hosts = "conf/hosts.json"
+dir_smtp  = "conf/smtp.json"
+
 
 #------------------------
 ### Apartado showLog
@@ -22,7 +22,7 @@ def showLogFull():
 		Funcion para cargar show_full.html
 		Carga los logs sin ningun tipo de filtro
 	"""
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)	
 
 
@@ -63,11 +63,9 @@ def selLog():
     
 @app.route('/view', methods=['GET'])
 def view():
-
 	'''
 		Pagina principal que contiene la tabla donde se mostraran los estados
 		de los correos enviados
-
 	'''
 	
 	try :
@@ -75,7 +73,7 @@ def view():
 	except (ValueError or Exception) as e :
 		pos = 0 
 	
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)
 
 	hostname = data[pos]['Hostname']
@@ -100,7 +98,7 @@ def getLog():
 	Returns:
 		data : contiene la lista de logs de ese host 
 	"""
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)	
 	r = request.form
 	pos =int(r['id'])
@@ -120,7 +118,7 @@ def getLog():
 @app.route("/")
 def home():
 
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)
 
 
@@ -163,7 +161,7 @@ def updateLog():
 		id -> obtendra un int , para descargar solamente los logs de un "Hostname"
 	
  	"""
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)
 	r = request.form
 	
@@ -179,7 +177,7 @@ def updateLog():
 
 			data[val]['Update'] = date
 
-		with open('hosts.json','w') as file:
+		with open(dir_hosts,'w') as file:
 			json.dump(data,file,indent=4)	
 		
 		return {'success':'OK','status':200} 
@@ -207,7 +205,7 @@ def updateLog():
 
 			data[pos]['Update'] = date
 
-			with open('hosts.json','w') as file:
+			with open(dir_hosts,'w') as file:
 				json.dump(data,file,indent=4)
 			return {'success':'OK','status':200,'count':count_status,'data':log_data} 
 		except (ValueError or Exception) as e :
@@ -222,7 +220,7 @@ def addDomain():
 
 	'''
 	r = request.form
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)
 
 	date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
@@ -236,7 +234,7 @@ def addDomain():
 	else:
 		data.append({'Hostname':r['hostname'],'IP':r['ip'],'User':r['user'],'Pass':password,"Update":date})
 
-	with open('hosts.json','w') as file:
+	with open(dir_hosts,'w') as file:
 		json.dump(data,file,indent=4)
 	return redirect("/")
 
@@ -245,37 +243,48 @@ def addDomain():
 #---------------------------------
 
 @app.route("/mailer")
-def mailer():
-	return render_template('mailer.html')
+def mailer():	
+	data = [{'hostname':"Example.com","from":"","user":"","password":""}]
+	if (os.path.exists(dir_smtp) == False):
+		firstExecution = True
+	else:
+		firstExecution = False
+		with open(dir_smtp,"r") as f:
+			data = json.load(f)
+
+	return render_template('mailer.html',first=firstExecution,data=data)
 
 @app.route("/addSMTP",methods=['POST'])
 def addSMTP():
+	r = request.form
+	data = []
+	if( os.path.exists(dir_smtp) == False):
+		with open(dir_smtp,"w") as f:
+			data.append({'hostname': r['hostname'],'from':r['from'],'user':r['user'],'password':r['password']})
+			json.dump(data,f,indent=4)
+	else:
+		with open(dir_smtp,"r") as f:
+			data = json.load(f)
+		data.append({'hostname': r['hostname'],'from':r['from'],'user':r['user'],'password':r['password']})
 
-	return {'status':'ok','data':""}
 
+	with open(dir_smtp,"w") as f:
+		json.dump(data,f,indent=4)
+
+	return redirect("/mailer")
+
+@app.route("/sendMail_test",methods=["POST"])
+def sendMail_test():
+	r = request.form  
+	return SendMail(r['host'],r['user'],r['password'],r['from'],r['to'],r['subject'],r['content'])
 @app.route("/sendMail",methods=["POST"])
 def sendMail():
+	id_smtp = 0
+	data = []
+	with open(dir_smtp,"r") as f:
+		data = json.load(f)
 
-	r = request.form  
-
-	server = smtplib.SMTP(host="smtp.mailercyber2.com",port=587)
-	server.ehlo()
-	server.starttls()
-	server.login("contacto@mailercyber2.com","Cyber4775.")  
-    
-	msg = MIMEMultipart('alternative')
-	msg['Subject'] = r['subject']
-	msg['From'] = r['from']
-	part1 = MIMEText(r['content'],'html')
-	msg.attach(part1)
-	msg['To'] = r['to']
-	server.sendmail(msg['From'],r['to'],msg.as_string())
-
-
-
-	return {'success':'OK','status':200,'data':r} 
-
-
+	return SendMail(data[id_smtp]['hostname'],data[id_smtp]['user'],data[id_smtp]['password'],data[id_smtp]['from'],r['to'],r['subject'],r['content'])
 #------------------------
 ### Funcion principal.-
 #------------------------
@@ -289,12 +298,12 @@ if  __name__=="__main__":
 
 	date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
 	date = str(dateparser.parse(date))
-	if(os.path.exists("hosts.json") == False):
+	if(os.path.exists(dir_hosts) == False):
 		data = [{'Hostname':'example.com','IP':'example','User':'example','Pass':'12345',"Update":date}]
-		with open('hosts.json','w') as file:
+		with open(dir_hosts,'w') as file:
 			json.dump(data,file,indent=4)
 
-	with open('hosts.json','r') as file:
+	with open(dir_hosts,'r') as file:
 		data = json.load(file)
 	if(data[0]['Hostname'] != 'example.com'):
 		password = cryptocode.decrypt(data[0]['Pass'], key)
