@@ -35,7 +35,7 @@
 	        	<p>Debes llenar los siguientes datos!</p>
 
 	        	
-			<form action="{{ url_for('addSMTP') }}" method="POST">
+			<form action="{{ url_for('mailer.addSMTP') }}" method="POST">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Dominio del servidor</label>
 			    <input type="text" class="form-control"  name="hostname" id="smtp" placeholder="smtp.example.com" required>
@@ -101,7 +101,7 @@
 			  	</div>
 			    
 			   	<div class="col">
-			   		<input type="email" id="from" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="{{data[0]['from']}}" required>
+			   		<input type="email" id="from_2" class="form-control" name="password" placeholder="Contacto <contacto@example.cl>" value="{{data[0]['from']}}" required>
 			   	</div>
 			    
 			  </div>
@@ -136,7 +136,7 @@
 
 			  </div>
 			</form>
-			<button  id="submit" class="btn btn-success float-right">Enviar</button>
+			<button  id="send_mail" class="btn btn-success float-right">Enviar</button>
 		</div>
 	</div>
 

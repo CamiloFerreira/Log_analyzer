@@ -34,7 +34,7 @@
 	        {% else %}
 	        	<p>Debes llenar los siguientes datos!</p>
 	      	{% endif %}
-			<form action="{{ url_for('addDomain') }}" method="POST">
+			<form action="{{ url_for('home.addDomain') }}" method="POST">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Dominio del servidor</label>
 			    <input type="text" class="form-control"  name="hostname" placeholder="hostname.com" required>

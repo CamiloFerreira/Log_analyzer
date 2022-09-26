@@ -73,6 +73,10 @@ $(document).ready(function(){
             $(id_alerta).html(html)
         }
     })
+
+    $("#send_mail").click(function(){
+        sendMail("#alerta",myEditor)
+    })
 })
 
 
@@ -80,14 +84,18 @@ $(document).ready(function(){
 function sendMail(id_alerta,myEditor){
 
     send= true;
+
+
     to = $("#to").val();
     subject = $("#asunto").val();
     text = myEditor.getData();
-    from = $("#from").val()
+    from = $("#from_2").val()
+
+
     test_mail = $("#test_mail").val()
     
     data = {'subject':subject,'from':from,"to":to,"content":text};
-   
+    console.log(data)
     for( col in data){
         if(data[col].length == 0){
             send = false
@@ -96,6 +104,8 @@ function sendMail(id_alerta,myEditor){
     data['test_mail'] = test_mail
         
     if(send){
+
+        console.log("Mandando correo .....")
         $.ajax({
             url : "/sendMail",
             type:'POST',
@@ -120,7 +130,7 @@ function sendMail(id_alerta,myEditor){
                 html +='</div>'             
                 html += " Enviando correo ... "
                 html +='</div>'     
-                 $("#alerta").html(html)
+                 $(id_alerta).html(html)
             }
         })
 

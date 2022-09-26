@@ -1,8 +1,8 @@
 [
     {
-        "hostname": "smtp.mailer-cf.tk",
-        "from": "Administrador <no-reply@mailer-cf.tk>",
-        "user": "no-reply@mailer-cf.tk",
-        "password": "Camilo500@"
+        "hostname": "mail.gomail.cl",
+        "from": "Admin < admin@gomail.cl>",
+        "user": "admin@gomail.cl",
+        "password": "a0DWRkh8KGOX7EJRhVma"
     }
 ]

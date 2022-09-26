@@ -3,6 +3,11 @@ import smtplib,socket
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from scp import SCPClient
+import pandas as pd
+import dns.resolver
+import json
+
+
 
 def DescargarLog(hostname,ip,user,passwd) -> None:
 	'''
@@ -19,7 +24,8 @@ def DescargarLog(hostname,ip,user,passwd) -> None:
 	'''
 	files = []
 	ssh = paramiko.SSHClient()
-	ssh.load_host_keys(os.path.expanduser(os.path.join("~", ".ssh", "known_hosts")))
+	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+	#ssh.load_host_keys(os.path.expanduser(os.path.join("~", ".ssh", "known_hosts")))
 	ssh.connect(ip,username=user,password=passwd)
 	stdin, stdout, stderr = ssh.exec_command(' ls /var/log/')	
 
@@ -138,8 +144,7 @@ def CountStatus(data) -> dict:
 	#status = ['sent','deferred','bounced','Unknown'] 
 	status = [data[i]['Status'] for i in range(len(data))]
 	status = list(set(status))
-	
-	dic = {'user unknown': 0, 'rejected': 0, 'bounced': 0, 'host unknown': 0, 'sent': 0}
+	dic = {'sent': 0,'deferred':0,'bounced': 0,'user unknown': 0,'rejected': 0,  'host unknown': 0, }
 		
 	for i in range(len(data)):		
 		for col in status:
@@ -199,8 +204,61 @@ def SendMail(host,user,passwd,from_,to,subject,content):
 		msg['To'] = to
 		server.sendmail(msg['From'],msg['to'],msg.as_string())
 
+		print("Correo enviado")
 		return {'success':'OK','status':200} 
 	except socket.gaierror:
 		return {'success':'ERORR',"msj":"Error en el hostname"} 
 	except smtplib.SMTPAuthenticationError:
 		return {'success':'ERORR',"msj":"Usuario o clave incorrecto!"}
+
+
+def checker_dns(dominio,ip):
+	sub_dominio = "mail."+dominio
+
+	dmarc = "v=DMARC1; p=quarantine; pct=100; rua=mailto:dmarc-reports@"+dominio
+	spf   = "v=spf1 mx ip4:%s ~all" % ip
+	dkim  = """v=DKIM1; h=sha256; k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq7RLvJmG/9eM4N9hOxAoKd81STpZ5PTTnRYYdJBcguafUyari+jKiYB7RfXPKJk12B7UOZi89KjiOcIJEZvlLp9gXtrUbmAF0kqk3MoiR2nKu8VPR6WQijNEPAJOGtKQhPshCxi0ju3DGeaNbOunEPkUA6g1lPD8Rc9qoPGBdAOpY5bDxsu20b4Ua1pYVDBhmEX8xnK0V0/dQMn5U8YIl+yG9k70vBHtfCzZpKsVT2Qxcji1IqoGcNQfU/IxbR89ml6sUwJM1aqQAROZFHZsyvHMZYZOglnOGQZDClcUdhgmXN9t/iPmBwdUmcttjXPV3uHmBhqw6+yQL7hZM83wSQIDAQAB""" 
+
+	dDNS = [
+				{'query':sub_dominio,'registro':'A','val':ip,'tipo':'subdominio'},
+				{'query':dominio,'registro':'MX','val':sub_dominio,'tipo':'MX'},
+				{'query':dominio,'registro':'TXT','val':spf,'tipo':'SPF'}, # SPF CHECK
+			 	{'query':'_dmarc.'+dominio,'registro':'TXT','val':dmarc,'tipo':'DMARC'},
+			 	{'query':'default._domainkey.'+dominio,'registro':'TXT','val':dkim,'tipo':'DKIM'}
+			 ]	
+
+	status =[]
+
+	for row in dDNS:
+
+		mesage = "PASS"
+		try : 
+			result = dns.resolver.query(row['query'],row['registro'])
+		
+			resp = result[0].to_text()
+			if (resp.find('"')> -1):
+				resp = resp[:-1]
+				resp = resp[1:len(resp)]
+			
+
+			## Quita comillas que existan en dkim
+			if(resp.find('"') > -1):
+				resp_clear = ""
+				for r in resp.split('"'):
+					if(r != ' '):
+						resp_clear+=r
+				resp = resp_clear  
+
+			if(row['tipo'] == "MX"):
+				resp = result[0].to_text()
+				resp = resp.split(" ")[1][:-1]
+
+			if ( resp != row['val'] ):
+				mesage = "FAIL"
+		except dns.resolver.NXDOMAIN:
+			mesage = "FAIL"
+		except dns.resolver.NoAnswer:
+			mesage = "NOT FOUND"
+		
+		status.append({'registro':row['tipo'],'status':mesage})
+	return json.dumps(status,indent=1)

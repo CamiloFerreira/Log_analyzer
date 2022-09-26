@@ -1,16 +1,16 @@
 [
     {
-        "Hostname": "mailercyber2.com",
-        "IP": "144.91.87.26",
-        "User": "root",
-        "Pass": "gzylRnDOe0tZr6jwLJqnZagxk9+u5A==*h04VYKutUo14hDG3Q+Fjcg==*zS8bayVrsnhQt7ROm0zhug==*uesm33ZELmfPbe+6JdJj0g==",
-        "Update": "2022-09-14 16:55:41"
-    },
-    {
-        "Hostname": "mailer-cf.tk",
+        "Hostname": "gomail.cl",
         "IP": "179.43.126.3",
         "User": "root",
-        "Pass": "X3T5xBordJcwLH/g*grghnojXuWgeAdayRW+mJw==*obr9CW9cymhJFPndxxHAgA==*EQtuWFORuqaqvHGA2ysINQ==",
-        "Update": "2022-09-14 17:47:08"
+        "Pass": "5SsENXOA8mD13gBL*ZNSi3ds1BsJ3bdvalOtv6A==*5Z0b6SiEz7GZAdK7vGErbg==*O+adhRCLbAPETLoI/biyKg==",
+        "Update": "2022-09-26 12:08:10"
+    },
+    {
+        "Hostname": "mailercyber1.com",
+        "IP": "154.53.37.147",
+        "User": "root",
+        "Pass": "d9ZH4WJXztWH2jOE*kr8WXqR7exnZ5hw2qx8ABw==*y+EUcESdjunNpbK2b9Okfg==*qRr1mztrQtQF/qHVybl2GA==",
+        "Update": "2022-09-26 12:08:15"
     }
 ]
