@@ -1,61 +1,49 @@
 from flask import Blueprint,render_template,request
 from tools import *
 from datetime import datetime
-from conf import *
-import json,os
+from conf import db,key
+import cryptocode,os
 
 page_view = Blueprint('view',__name__,template_folder='templates')
 
-## Variables globales
-dir_hosts = get_hosts()
-dir_smtp  = get_smtp()
-key       = get_key()
 
-@page_view.route("/showLog")
-def showLogFull():
-	"""
-		Funcion para cargar show_full.html
-		Carga los logs sin ningun tipo de filtro
-	"""
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)	
+@page_view.route("/updateOne",methods=['POST'])
+def updateOne():
+	r = request.form
 
+	id_host = int(r['id'])
+	id_log  = int(r['id_log'])
+	descargar = bool(r['descargar'])
 
-	hostname = str(data[0]['Hostname'].split(".")[0])
+	servidores = db.getServidores()
+	password = cryptocode.decrypt(servidores[id_host]['clave'], key)	
+	
+	if(descargar == True):
+		DescargarLog(servidores[id_host]['hostname'],servidores[id_host]['ip'],servidores[id_host]['usuario'],password)
 
-	contenido = os.listdir("Logs/"+hostname+"/")
-	file = open("Logs/"+hostname+"/mail.log")
-	aLines = [line.strip() for line in file.readlines()[::-1]]
+		hostname = str(servidores[id_host]['hostname'].split(".")[0])
+		contenido = os.listdir("Logs/"+hostname+"/")
 
 
-	return render_template('show_full.html',data=data,log=aLines,file_list=contenido)
+		date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
+		date = str(dateparser.parse(date))
+		db.updateFecha(id_host,date)
+		db.deleteEstado(id_host,id_log)
+		estados = ProcesarLog(servidores[id_host]['hostname'],contenido[id_log])
+		count_status = CountStatus(estados)
 
-@page_view.route("/selLog",methods=["POST"])
-def selLog():
-    '''
-		Funcion que retorna el log seleccionado,
-		Esta funcion siendo llamada en el onchange de "sel_log"
-  
-		log_id -> posicion del log a seleccionar
-		id -> posicion del hostname a seleccionar
-    
-    '''
-    r = request.form
-    try:
-        log_id = int(r['log_id'])
-        pos  = int(r['id'])
-        hostname = data[pos]['Hostname']
-        if(len(hostname.split(".")) > 1): 
-            hostname = hostname.split(".")[0]
-        
-        contenido = os.listdir("Logs/"+hostname+"/")
-        log_data = ProcesarLog(data[pos]['Hostname'],contenido[log_id])
-        count_status = CountStatus(log_data)        
-        
-        return {'success':'OK','status':200,'count':count_status,'data':log_data} 
-    except (ValueError or Exception) as e :
-        return {'success':'Error','status':400,'data':'NULL'} 
-    
+		for est in estados:
+			est['id_host'] = id_host
+			est['id_log']  = id_log
+
+		db.insertarEstados(estados)
+	else:
+		estados = db.getEstados(id_host,id_log)
+		count_status = CountStatus(estados)
+
+	return {'success':'OK','status':200,'estados':estados,'count':count_status}
+	  
+
 @page_view.route('/view', methods=['GET'])
 def view():
 	'''
@@ -68,16 +56,25 @@ def view():
 	except (ValueError or Exception) as e :
 		pos = 0 
 	
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)
+	hostname = db.getServidores()[pos]['hostname']
 
-	hostname = data[pos]['Hostname']
+	if(db.getEstados(pos) == []):
+		estados = ProcesarLog(hostname,'mail.log')
+		if(estados[0]['fecha'] != "N/A"):
+
+			for est in estados:
+				est['id_host'] = pos
+				est['id_log']  = 0
+			db.insertarEstados(estados)
+	else:
+		estados = db.getEstados(pos,0)
+
 	if(len(hostname.split(".")) > 1): 
 		hostname = hostname.split(".")[0]
 	
 
 	contenido = os.listdir("Logs/"+hostname+"/")
-	log_data = ProcesarLog(data[pos]['Hostname'],'mail.log')
-	count_status = CountStatus(log_data)
+	count_status = CountStatus(estados)
 
-	return render_template('view_log.html',dic=log_data,count=count_status,log_list = contenido)#,dic=log_data,data=data,contenido=contenido)
+	return render_template('view_log.html',dic=estados,count=count_status,log_list = contenido)
+

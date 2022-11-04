@@ -1,0 +1,539 @@
+Nov  3 00:10:29 gomailer amavis[1045]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  3 00:10:29 gomailer amavis[1045]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  3 00:10:30 gomailer amavis[1045]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  3 00:10:30 gomailer amavis[1045]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  3 00:10:30 gomailer amavis[1045]: No $altermime,         not using it
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .lrz, tried: lrzip -q -k -d -o -, lrzcat -q -k
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .lzo, tried: lzop -d
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .lz4, tried: lz4c -d
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .rpm, tried: rpm2cpio.pl, rpm2cpio
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .rar, tried: unrar-free
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .arj, tried: arj, unarj
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .arc, tried: nomarch, arc
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .zoo, tried: zoo
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .doc, tried: ripole
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .cab, tried: cabextract
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .zip, tried: 7za, 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .kmz, tried: 7za, 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .7z, tried: 7zr, 7za, 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .jar, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .arj, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .rar, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .swf, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .lha, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .iso, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .cab, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .rpm, tried: 7z
+Nov  3 00:10:30 gomailer amavis[1045]: No ext program for   .exe, tried: unrar-free; arj, unarj
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .7z  
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .F   
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .arc 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .arj 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .cab 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .doc 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .exe 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .iso 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .jar 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .lha 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .lrz 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .lz4 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .lzo 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .rar 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .rpm 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .swf 
+Nov  3 00:10:30 gomailer amavis[1045]: No decoder for       .zoo 
+Nov  3 00:10:31 gomailer postmulti[1650]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:31 gomailer postfix[1651]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:31 gomailer postfix[1651]: Postfix is running with backwards-compatible default settings
+Nov  3 00:10:31 gomailer postfix[1651]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:10:31 gomailer postfix[1651]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:10:31 gomailer postfix/master[1656]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:32 gomailer postfix/postsuper[1691]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:33 gomailer postfix/postlog[1870]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:33 gomailer postfix/postfix-script[1870]: starting the Postfix mail system
+Nov  3 00:10:33 gomailer postfix/master[1872]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:33 gomailer postfix/master[1872]: daemon started -- version 3.6.4, configuration /etc/postfix
+Nov  3 00:10:33 gomailer postfix/pickup[1874]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:33 gomailer postfix/qmgr[1875]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:32 gomailer postfix/smtpd[2406]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:33 gomailer postfix/proxymap[2407]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:33 gomailer postfix/tlsmgr[2408]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer postfix/smtpd[2406]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:14:34 gomailer postfix/anvil[2409]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer postfix/smtpd[2406]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Nov  3 00:14:34 gomailer postfix/trivial-rewrite[2410]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer postfix/cleanup[2411]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer postfix/smtpd[2406]: A011B2C32: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:14:34 gomailer postfix/cleanup[2411]: A011B2C32: message-id=<0ee712ee-5aa6-07d3-7224-9d67e4559855@gomail.cl>
+Nov  3 00:14:34 gomailer postfix/qmgr[1875]: A011B2C32: from=<admin@gomail.cl>, size=4776, nrcpt=1 (queue active)
+Nov  3 00:14:34 gomailer postfix/smtpd[2406]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Nov  3 00:14:34 gomailer postfix/local[2412]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer postfix/local[2412]: A011B2C32: passing <admin@gomailer.tk> to transport=lmtp
+Nov  3 00:14:34 gomailer postfix/lmtp[2413]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:14:34 gomailer dovecot: lmtp(2414): Connect from local
+Nov  3 00:14:35 gomailer dovecot: lmtp(admin)<2414><2GChNeoHY2NuCQAAjDvtHA>: msgid=<0ee712ee-5aa6-07d3-7224-9d67e4559855@gomail.cl>: saved mail to INBOX
+Nov  3 00:14:35 gomailer postfix/lmtp[2413]: A011B2C32: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.46, delays=0.09/0.02/0.17/0.18, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> 2GChNeoHY2NuCQAAjDvtHA Saved)
+Nov  3 00:14:35 gomailer postfix/qmgr[1875]: A011B2C32: removed
+Nov  3 00:14:35 gomailer dovecot: lmtp(2414): Disconnect from local: Logged out (state=READY)
+Nov  3 00:16:46 gomailer postfix/smtpd[2607]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:46 gomailer postfix/proxymap[2608]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:47 gomailer postfix/smtpd[2607]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:16:47 gomailer postfix/smtpd[2607]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits)
+Nov  3 00:16:47 gomailer postfix/trivial-rewrite[2609]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:47 gomailer postfix/cleanup[2610]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:47 gomailer postfix/smtpd[2607]: 5CF482C32: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:16:47 gomailer postfix/cleanup[2610]: 5CF482C32: message-id=<2fb31f0c-09a4-3b44-95a5-e1e718efab90@gomail.cl>
+Nov  3 00:16:47 gomailer postfix/qmgr[1875]: 5CF482C32: from=<admin@gomail.cl>, size=1594, nrcpt=1 (queue active)
+Nov  3 00:16:47 gomailer postfix/smtpd[2607]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Nov  3 00:16:47 gomailer postfix/local[2611]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:47 gomailer postfix/local[2611]: 5CF482C32: passing <admin@gomailer.tk> to transport=lmtp
+Nov  3 00:16:47 gomailer postfix/lmtp[2612]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:16:47 gomailer dovecot: lmtp(2613): Connect from local
+Nov  3 00:16:47 gomailer dovecot: lmtp(admin)<2613><qRH/HG8IY2M1CgAAjDvtHA>: msgid=<2fb31f0c-09a4-3b44-95a5-e1e718efab90@gomail.cl>: saved mail to INBOX
+Nov  3 00:16:47 gomailer postfix/lmtp[2612]: 5CF482C32: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.17, delays=0.07/0.02/0.04/0.05, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> qRH/HG8IY2M1CgAAjDvtHA Saved)
+Nov  3 00:16:47 gomailer postfix/qmgr[1875]: 5CF482C32: removed
+Nov  3 00:16:47 gomailer dovecot: lmtp(2613): Disconnect from local: Logged out (state=READY)
+Nov  3 00:18:16 gomailer postfix/smtpd[2638]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:18:16 gomailer postfix/smtpd[2637]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:18:16 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<FWTM5IXst9S/csBA>
+Nov  3 00:18:16 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<iqzM5IXsttS/csBA>
+Nov  3 00:18:16 gomailer postfix/smtpd[2607]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:16 gomailer postfix/smtpd[2607]: connect from unknown[191.114.192.64]
+Nov  3 00:18:16 gomailer postfix/smtpd[2607]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:16 gomailer postfix/smtpd[2607]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/smtpd[2640]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<kZ/N5IXsudS/csBA>
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer postfix/smtpd[2642]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:18:17 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<Z9/N5IXsuNS/csBA>
+Nov  3 00:18:17 gomailer postfix/smtpd[2607]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/smtpd[2607]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/smtpd[2607]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/smtpd[2607]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/smtpd[2638]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<jvHO5IXsv9S/csBA>
+Nov  3 00:18:17 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<YPLO5IXsvtS/csBA>
+Nov  3 00:18:17 gomailer dovecot: pop3-login: Disconnected: Connection closed (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<f4nP5IXswdS/csBA>
+Nov  3 00:18:17 gomailer dovecot: imap-login: Disconnected: Connection closed (no auth attempts in 0 secs): user=<>, rip=191.114.192.64, lip=192.168.1.2, session=<34fP5IXswNS/csBA>
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2640]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2640]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: warning: hostname 191-114-192-64.baf.movistar.cl does not resolve to address 191.114.192.64: Name or service not known
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: connect from unknown[191.114.192.64]
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2637]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2640]: improper command pipelining after EHLO from unknown[191.114.192.64]: QUIT\r\n
+Nov  3 00:18:17 gomailer postfix/submission/smtpd[2640]: disconnect from unknown[191.114.192.64] ehlo=1 quit=1 commands=2
+Nov  3 00:18:18 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2649, TLS, session=<MZHk5IXsxtS/csBA>
+Nov  3 00:18:18 gomailer dovecot: imap(admin)<2649><MZHk5IXsxtS/csBA>: Disconnected: Connection closed (No commands sent) in=0 out=417 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:18:19 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2653, TLS, session=<Mevp5IXsx9S/csBA>
+Nov  3 00:18:19 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2654, TLS, session=<e5jq5IXsyNS/csBA>
+Nov  3 00:21:37 gomailer postfix/anvil[2409]: statistics: max connection rate 4/60s for (smtp:191.114.192.64) at Nov  3 00:18:17
+Nov  3 00:21:37 gomailer postfix/anvil[2409]: statistics: max connection count 2 for (submission:191.114.192.64) at Nov  3 00:18:17
+Nov  3 00:21:37 gomailer postfix/anvil[2409]: statistics: max cache size 2 at Nov  3 00:18:17
+Nov  3 00:22:31 gomailer spamd[3914]: logger: removing stderr method
+Nov  3 00:22:32 gomailer spamd[3916]: zoom: able to use 395/395 'body_0' compiled rules (100%)
+Nov  3 00:22:34 gomailer spamd[3916]: spamd: server started on IO::Socket::IP [::1]:783, IO::Socket::IP [127.0.0.1]:783 (running version 3.4.6)
+Nov  3 00:22:34 gomailer spamd[3916]: spamd: server pid: 3916
+Nov  3 00:22:34 gomailer spamd[3916]: spamd: server successfully spawned child process, pid 3918
+Nov  3 00:22:34 gomailer spamd[3916]: spamd: server successfully spawned child process, pid 3919
+Nov  3 00:22:34 gomailer spamd[3916]: prefork: child states: IS
+Nov  3 00:22:34 gomailer spamd[3916]: prefork: child states: II
+Nov  3 00:22:41 gomailer spamass-milter[4101]: spamass-milter 0.4.0 starting
+Nov  3 00:24:12 gomailer postmulti[4221]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:12 gomailer postfix[4226]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:12 gomailer postfix[4226]: Postfix is running with backwards-compatible default settings
+Nov  3 00:24:12 gomailer postfix[4226]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:24:12 gomailer postfix[4226]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:24:12 gomailer postfix/master[4231]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:12 gomailer postfix/postlog[4232]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:12 gomailer postfix/postfix-script[4232]: stopping the Postfix mail system
+Nov  3 00:24:12 gomailer postfix/master[1872]: terminating on signal 15
+Nov  3 00:24:12 gomailer postfix/master[4234]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:16 gomailer postmulti[4553]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:16 gomailer postfix[4554]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:16 gomailer postfix[4554]: Postfix is running with backwards-compatible default settings
+Nov  3 00:24:16 gomailer postfix[4554]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:24:16 gomailer postfix[4554]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:24:16 gomailer postfix/master[4559]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:16 gomailer postfix/postsuper[4594]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:17 gomailer postfix/postlog[4773]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:17 gomailer postfix/postfix-script[4773]: starting the Postfix mail system
+Nov  3 00:24:17 gomailer postfix/master[4775]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:17 gomailer postfix/master[4775]: daemon started -- version 3.6.4, configuration /etc/postfix
+Nov  3 00:24:17 gomailer postfix/pickup[4777]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:17 gomailer postfix/qmgr[4778]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:24:17 gomailer spamass-milter[4796]: spamass-milter 0.4.0 starting
+Nov  3 00:28:45 gomailer dovecot: master: Dovecot v2.3.16 (7e2e900c1a) starting up for imap, lmtp, imap, lmtp, pop3 (core dumps disabled)
+Nov  3 00:28:46 gomailer spamass-milter[897]: spamass-milter 0.4.0 starting
+Nov  3 00:28:49 gomailer spamd[812]: logger: removing stderr method
+Nov  3 00:28:54 gomailer spamd[1034]: zoom: able to use 395/395 'body_0' compiled rules (100%)
+Nov  3 00:28:56 gomailer amavis[882]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  3 00:28:56 gomailer amavis[882]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  3 00:28:56 gomailer spamd[1034]: spamd: server started on IO::Socket::IP [::1]:783, IO::Socket::IP [127.0.0.1]:783 (running version 3.4.6)
+Nov  3 00:28:56 gomailer spamd[1034]: spamd: server pid: 1034
+Nov  3 00:28:56 gomailer spamd[1034]: spamd: server successfully spawned child process, pid 1277
+Nov  3 00:28:56 gomailer amavis[882]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  3 00:28:56 gomailer spamd[1034]: spamd: server successfully spawned child process, pid 1285
+Nov  3 00:28:56 gomailer amavis[882]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  3 00:28:56 gomailer spamd[1034]: prefork: child states: II
+Nov  3 00:28:56 gomailer amavis[882]: No $altermime,         not using it
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .lrz, tried: lrzip -q -k -d -o -, lrzcat -q -k
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .lzo, tried: lzop -d
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .lz4, tried: lz4c -d
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .rpm, tried: rpm2cpio.pl, rpm2cpio
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .rar, tried: unrar-free
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .arj, tried: arj, unarj
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .arc, tried: nomarch, arc
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .zoo, tried: zoo
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .doc, tried: ripole
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .cab, tried: cabextract
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .zip, tried: 7za, 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .kmz, tried: 7za, 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .7z, tried: 7zr, 7za, 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .jar, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .arj, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .rar, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .swf, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .lha, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .iso, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .cab, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .rpm, tried: 7z
+Nov  3 00:28:56 gomailer amavis[882]: No ext program for   .exe, tried: unrar-free; arj, unarj
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .7z  
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .F   
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .arc 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .arj 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .cab 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .doc 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .exe 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .iso 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .jar 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .lha 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .lrz 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .lz4 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .lzo 
+Nov  3 00:28:56 gomailer amavis[882]: No decoder for       .rar 
+Nov  3 00:28:57 gomailer amavis[882]: No decoder for       .rpm 
+Nov  3 00:28:57 gomailer amavis[882]: No decoder for       .swf 
+Nov  3 00:28:57 gomailer amavis[882]: No decoder for       .zoo 
+Nov  3 00:29:00 gomailer postmulti[1466]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:00 gomailer postfix[1467]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:00 gomailer postfix[1467]: Postfix is running with backwards-compatible default settings
+Nov  3 00:29:00 gomailer postfix[1467]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:29:00 gomailer postfix[1467]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:29:00 gomailer postfix/master[1472]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:01 gomailer postfix/postsuper[1507]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:02 gomailer postfix/postlog[1686]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:02 gomailer postfix/postfix-script[1686]: starting the Postfix mail system
+Nov  3 00:29:02 gomailer postfix/master[1688]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:02 gomailer postfix/master[1688]: daemon started -- version 3.6.4, configuration /etc/postfix
+Nov  3 00:29:02 gomailer postfix/qmgr[1691]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:29:02 gomailer postfix/pickup[1690]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:33:29 gomailer dovecot: master: Warning: Killed with signal 15 (by pid=2149 uid=0 code=kill)
+Nov  3 00:33:30 gomailer dovecot: master: Dovecot v2.3.16 (7e2e900c1a) starting up for imap, lmtp, imap, lmtp, pop3 (core dumps disabled)
+Nov  3 00:38:19 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2276, TLS, session=<aLh3LIbsh9W/csBA>
+Nov  3 00:40:56 gomailer dovecot: master: Warning: Killed with signal 15 (by pid=2291 uid=0 code=kill)
+Nov  3 00:40:56 gomailer dovecot: imap(admin)<2276><aLh3LIbsh9W/csBA>: Disconnected: Server shutting down. in=177 out=1306 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:40:57 gomailer dovecot: master: Dovecot v2.3.16 (7e2e900c1a) starting up for imap, lmtp, imap, lmtp, pop3 (core dumps disabled)
+Nov  3 00:41:09 gomailer spamass-milter[2320]: spamass-milter 0.4.0 starting
+Nov  3 00:42:05 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2497, TLS, session=<0kn0OYbsk9W/csBA>
+Nov  3 00:42:12 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2735, TLS, session=<ks9dOobslNW/csBA>
+Nov  3 00:42:25 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=2887, TLS, session=<A2YgO4bsldW/csBA>
+Nov  3 00:42:27 gomailer dovecot: imap(admin)<2497><0kn0OYbsk9W/csBA>: Disconnected: Logged out in=100 out=651 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:42:27 gomailer dovecot: imap(admin)<2735><ks9dOobslNW/csBA>: Disconnected: Logged out in=126 out=1004 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:42:27 gomailer dovecot: imap(admin)<2887><A2YgO4bsldW/csBA>: Disconnected: Logged out in=100 out=651 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:43:04 gomailer amavis[2895]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  3 00:43:04 gomailer amavis[2895]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  3 00:43:04 gomailer amavis[2895]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  3 00:43:04 gomailer amavis[2895]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  3 00:43:04 gomailer amavis[2895]: No $altermime,         not using it
+Nov  3 00:43:04 gomailer amavis[2895]: No ext program for   .zoo, tried: zoo
+Nov  3 00:43:04 gomailer amavis[2895]: No ext program for   .doc, tried: ripole
+Nov  3 00:43:04 gomailer amavis[2895]: No decoder for       .F   
+Nov  3 00:43:04 gomailer amavis[2895]: No decoder for       .doc 
+Nov  3 00:43:04 gomailer amavis[2895]: No decoder for       .zoo 
+Nov  3 00:44:32 gomailer postmulti[2920]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:33 gomailer postfix[2921]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:33 gomailer postfix[2921]: Postfix is running with backwards-compatible default settings
+Nov  3 00:44:33 gomailer postfix[2921]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:44:33 gomailer postfix[2921]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:44:33 gomailer postfix/master[2926]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:33 gomailer postfix/postlog[2927]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:33 gomailer postfix/postfix-script[2927]: stopping the Postfix mail system
+Nov  3 00:44:33 gomailer postfix/master[1688]: terminating on signal 15
+Nov  3 00:44:33 gomailer postfix/master[2929]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:36 gomailer postmulti[3249]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:36 gomailer postfix[3250]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:36 gomailer postfix[3250]: Postfix is running with backwards-compatible default settings
+Nov  3 00:44:36 gomailer postfix[3250]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:44:36 gomailer postfix[3250]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:44:36 gomailer postfix/master[3255]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:36 gomailer postfix/postsuper[3290]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:37 gomailer postfix/postlog[3469]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:37 gomailer postfix/postfix-script[3469]: starting the Postfix mail system
+Nov  3 00:44:37 gomailer postfix/master[3471]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:37 gomailer postfix/master[3471]: daemon started -- version 3.6.4, configuration /etc/postfix
+Nov  3 00:44:37 gomailer postfix/qmgr[3474]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:37 gomailer postfix/pickup[3473]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:46 gomailer postfix/sendmail[3631]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:44:46 gomailer postfix/postalias[3631]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:47:37 gomailer amavis[4507]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  3 00:47:37 gomailer amavis[4507]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  3 00:47:38 gomailer amavis[4507]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  3 00:47:38 gomailer amavis[4507]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  3 00:47:38 gomailer amavis[4507]: No $altermime,         not using it
+Nov  3 00:47:38 gomailer amavis[4507]: No ext program for   .zoo, tried: zoo
+Nov  3 00:47:38 gomailer amavis[4507]: No ext program for   .doc, tried: ripole
+Nov  3 00:47:38 gomailer amavis[4507]: No decoder for       .F   
+Nov  3 00:47:38 gomailer amavis[4507]: No decoder for       .doc 
+Nov  3 00:47:38 gomailer amavis[4507]: No decoder for       .zoo 
+Nov  3 00:47:38 gomailer amavis[4507]: Using primary internal av scanner code for ClamAV-clamd
+Nov  3 00:47:38 gomailer amavis[4507]: Found secondary av scanner ClamAV-clamscan at /usr/bin/clamscan
+Nov  3 00:48:45 gomailer amavis[4534]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  3 00:48:45 gomailer amavis[4534]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  3 00:48:46 gomailer amavis[4534]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  3 00:48:46 gomailer amavis[4534]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  3 00:48:46 gomailer amavis[4534]: No $altermime,         not using it
+Nov  3 00:48:46 gomailer amavis[4534]: No ext program for   .zoo, tried: zoo
+Nov  3 00:48:46 gomailer amavis[4534]: No ext program for   .doc, tried: ripole
+Nov  3 00:48:46 gomailer amavis[4534]: No decoder for       .F   
+Nov  3 00:48:46 gomailer amavis[4534]: No decoder for       .doc 
+Nov  3 00:48:46 gomailer amavis[4534]: No decoder for       .zoo 
+Nov  3 00:48:46 gomailer amavis[4534]: Using primary internal av scanner code for ClamAV-clamd
+Nov  3 00:48:46 gomailer amavis[4534]: Found secondary av scanner ClamAV-clamscan at /usr/bin/clamscan
+Nov  3 00:49:40 gomailer postmulti[4558]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:49:40 gomailer postfix[4559]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:49:40 gomailer postfix[4559]: Postfix is running with backwards-compatible default settings
+Nov  3 00:49:40 gomailer postfix[4559]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:49:40 gomailer postfix[4559]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:49:41 gomailer postfix/master[4564]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:49:41 gomailer postfix/postlog[4565]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:49:41 gomailer postfix/postfix-script[4565]: stopping the Postfix mail system
+Nov  3 00:49:41 gomailer postfix/master[3471]: terminating on signal 15
+Nov  3 00:49:41 gomailer postfix/master[4567]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:00 gomailer postmulti[4887]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:01 gomailer postfix[4888]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:01 gomailer postfix[4888]: Postfix is running with backwards-compatible default settings
+Nov  3 00:50:01 gomailer postfix[4888]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 00:50:01 gomailer postfix[4888]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 00:50:01 gomailer postfix/master[4893]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:03 gomailer postfix/postsuper[4928]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:06 gomailer postfix/postlog[5107]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:06 gomailer postfix/postfix-script[5107]: starting the Postfix mail system
+Nov  3 00:50:06 gomailer postfix/master[5109]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:06 gomailer postfix/master[5109]: daemon started -- version 3.6.4, configuration /etc/postfix
+Nov  3 00:50:06 gomailer postfix/qmgr[5112]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:06 gomailer postfix/pickup[5111]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:50:59 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5322, TLS, session=<9DTKWYbsw9W/csBA>
+Nov  3 00:51:00 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5326, TLS, session=<uV3PWYbsxNW/csBA>
+Nov  3 00:51:00 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5327, TLS, session=<fv7PWYbsxdW/csBA>
+Nov  3 00:52:24 gomailer dovecot: master: Warning: Killed with signal 15 (by pid=5341 uid=0 code=kill)
+Nov  3 00:52:24 gomailer dovecot: imap(admin)<5326><uV3PWYbsxNW/csBA>: Disconnected: Server shutting down. in=91 out=607 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:52:24 gomailer dovecot: imap(admin)<5322><9DTKWYbsw9W/csBA>: Disconnected: Server shutting down. in=245 out=1060 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:52:24 gomailer dovecot: imap(admin)<5327><fv7PWYbsxdW/csBA>: Disconnected: Server shutting down. in=125 out=986 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 00:52:25 gomailer dovecot: log(2296): Warning: Killed with signal 15 (by pid=1 uid=0 code=kill)
+Nov  3 00:52:25 gomailer dovecot: master: Dovecot v2.3.16 (7e2e900c1a) starting up for imap, lmtp, imap, lmtp, pop3 (core dumps disabled)
+Nov  3 00:52:37 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5352, TLS, session=<XW2cX4bsytW/csBA>
+Nov  3 00:52:42 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5354, TLS, session=<GS/iX4bsy9W/csBA>
+Nov  3 00:52:43 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.192.64, lip=192.168.1.2, mpid=5356, TLS, session=<IuzvX4bszNW/csBA>
+Nov  3 00:52:55 gomailer postfix/smtpd[5357]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:55 gomailer postfix/proxymap[5358]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:56 gomailer postfix/tlsmgr[5359]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:56 gomailer postfix/smtpd[5357]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:52:56 gomailer postfix/anvil[5360]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:56 gomailer postfix/smtpd[5357]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Nov  3 00:52:56 gomailer postfix/trivial-rewrite[5361]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:56 gomailer spamass-milter[2320]: Could not retrieve sendmail macro "b"!.  Please add it to confMILTER_MACROS_ENVRCPT for better spamassassin results
+Nov  3 00:52:56 gomailer postfix/cleanup[5362]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:52:56 gomailer postfix/smtpd[5357]: 916812CF: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:52:56 gomailer postfix/cleanup[5362]: 916812CF: message-id=<7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl>
+Nov  3 00:52:56 gomailer spamd[1277]: spamd: connection from ::1 [::1]:49994 to port 783, fd 5
+Nov  3 00:52:57 gomailer spamd[1277]: spamd: setuid to admin succeeded
+Nov  3 00:52:57 gomailer spamd[1277]: spamd: creating default_prefs: /home/admin/.spamassassin/user_prefs
+Nov  3 00:52:57 gomailer spamd[1277]: config: created user preferences file: /home/admin/.spamassassin/user_prefs
+Nov  3 00:52:57 gomailer spamd[1277]: spamd: processing message <7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl> for admin:1002
+Nov  3 00:53:00 gomailer spamd[5364]: util: setuid: ruid=1002 euid=1002 rgid=1002 1002 egid=1002 1002 
+Nov  3 00:53:03 gomailer spamd[1277]: spamd: clean message (0.2/5.0) for admin:1002 in 7.0 seconds, 4534 bytes.
+Nov  3 00:53:03 gomailer spamd[1277]: spamd: result: . 0 - DKIM_INVALID,DKIM_SIGNED,SPF_HELO_PASS,SPF_PASS,URIBL_BLOCKED scantime=7.0,size=4534,user=admin,uid=1002,required_score=5.0,rhost=::1,raddr=::1,rport=49994,mid=<7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl>,autolearn=no autolearn_force=no
+Nov  3 00:53:03 gomailer postfix/smtpd[5357]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Nov  3 00:53:03 gomailer postfix/qmgr[5112]: 916812CF: from=<admin@gomail.cl>, size=4809, nrcpt=1 (queue active)
+Nov  3 00:53:03 gomailer postfix/smtp[5365]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:53:04 gomailer spamd[1034]: prefork: child states: II
+Nov  3 00:53:13 gomailer postfix/smtpd[5371]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:53:13 gomailer postfix/10025/smtpd[5371]: connect from localhost[127.0.0.1]
+Nov  3 00:53:13 gomailer postfix/10025/smtpd[5371]: 3FC06BBC8: client=localhost[127.0.0.1]
+Nov  3 00:53:13 gomailer postfix/cleanup[5362]: 3FC06BBC8: message-id=<7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl>
+Nov  3 00:53:13 gomailer postfix/qmgr[5112]: 3FC06BBC8: from=<admin@gomail.cl>, size=5048, nrcpt=1 (queue active)
+Nov  3 00:53:13 gomailer postfix/local[5372]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:53:13 gomailer postfix/local[5372]: 3FC06BBC8: passing <admin@gomailer.tk> to transport=lmtp
+Nov  3 00:53:13 gomailer postfix/lmtp[5373]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:53:13 gomailer amavis[4553]: (04553-01) Passed CLEAN {RelayedInbound}, [179.43.126.3]:40646 [191.114.192.64] <admin@gomail.cl> -> <admin@gomailer.tk>, Queue-ID: 916812CF, Message-ID: <7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl>, mail_id: 9QpviKLa9GMt, Hits: 0.199, size: 4691, queued_as: 3FC06BBC8, 9131 ms
+Nov  3 00:53:13 gomailer postfix/amavis/smtp[5365]: 916812CF: to=<admin@gomailer.tk>, relay=127.0.0.1[127.0.0.1]:10024, delay=17, delays=7.2/0.07/1.1/8.5, dsn=2.0.0, status=sent (250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as 3FC06BBC8)
+Nov  3 00:53:13 gomailer postfix/qmgr[5112]: 916812CF: removed
+Nov  3 00:53:13 gomailer dovecot: lmtp(5374): Connect from local
+Nov  3 00:53:13 gomailer dovecot: lmtp(admin)<5374><3VMfJPkQY2P+FAAAjDvtHA>: sieve: msgid=<7b22ab9b-56e6-ed18-1286-cf3c2b4ac3af@gomail.cl>: stored mail into mailbox 'INBOX'
+Nov  3 00:53:13 gomailer postfix/lmtp[5373]: 3FC06BBC8: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.38, delays=0.02/0.07/0.26/0.03, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> 3VMfJPkQY2P+FAAAjDvtHA Saved)
+Nov  3 00:53:13 gomailer postfix/qmgr[5112]: 3FC06BBC8: removed
+Nov  3 00:53:13 gomailer dovecot: lmtp(5374): Disconnect from local: Logged out (state=READY)
+Nov  3 00:55:52 gomailer postfix/smtpd[5377]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:52 gomailer postfix/proxymap[5378]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:52 gomailer postfix/smtpd[5377]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:55:52 gomailer postfix/smtpd[5377]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits)
+Nov  3 00:55:52 gomailer postfix/cleanup[5379]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:52 gomailer postfix/smtpd[5377]: B7B382CF: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 00:55:52 gomailer postfix/cleanup[5379]: B7B382CF: message-id=<6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl>
+Nov  3 00:55:52 gomailer spamd[1277]: spamd: connection from ::1 [::1]:60956 to port 783, fd 5
+Nov  3 00:55:52 gomailer spamd[1277]: spamd: setuid to admin succeeded
+Nov  3 00:55:52 gomailer spamd[1277]: spamd: processing message <6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl> for admin:1002
+Nov  3 00:55:52 gomailer spamd[5381]: util: setuid: ruid=1002 euid=1002 rgid=1002 1002 egid=1002 1002 
+Nov  3 00:55:54 gomailer spamd[1277]: spamd: clean message (-0.2/5.0) for admin:1002 in 1.3 seconds, 1409 bytes.
+Nov  3 00:55:54 gomailer spamd[1277]: spamd: result: . 0 - DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,DKIM_VALID_EF,SPF_HELO_PASS,SPF_PASS,URIBL_BLOCKED scantime=1.3,size=1409,user=admin,uid=1002,required_score=5.0,rhost=::1,raddr=::1,rport=60956,mid=<6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl>,autolearn=ham autolearn_force=no
+Nov  3 00:55:54 gomailer postfix/qmgr[5112]: B7B382CF: from=<admin@gomail.cl>, size=1615, nrcpt=1 (queue active)
+Nov  3 00:55:54 gomailer postfix/smtpd[5377]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Nov  3 00:55:54 gomailer postfix/smtp[5382]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:54 gomailer spamd[1034]: prefork: child states: II
+Nov  3 00:55:56 gomailer postfix/smtpd[5386]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:56 gomailer postfix/10025/smtpd[5386]: connect from localhost[127.0.0.1]
+Nov  3 00:55:56 gomailer postfix/10025/smtpd[5386]: C864FBBC8: client=localhost[127.0.0.1]
+Nov  3 00:55:56 gomailer postfix/cleanup[5379]: C864FBBC8: message-id=<6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl>
+Nov  3 00:55:56 gomailer postfix/qmgr[5112]: C864FBBC8: from=<admin@gomail.cl>, size=1885, nrcpt=1 (queue active)
+Nov  3 00:55:56 gomailer postfix/local[5387]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:56 gomailer amavis[4554]: (04554-01) Passed CLEAN {RelayedInbound}, [179.43.126.3]:32830 [191.114.192.64] <admin@gomail.cl> -> <admin@gomailer.tk>, Queue-ID: B7B382CF, Message-ID: <6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl>, mail_id: EYJm6wZgutGS, Hits: -0.201, size: 1594, queued_as: C864FBBC8, dkim_sd=default:gomail.cl, 2416 ms
+Nov  3 00:55:56 gomailer postfix/local[5387]: C864FBBC8: passing <admin@gomailer.tk> to transport=lmtp
+Nov  3 00:55:56 gomailer postfix/amavis/smtp[5382]: B7B382CF: to=<admin@gomailer.tk>, relay=127.0.0.1[127.0.0.1]:10024, delay=4.2, delays=1.5/0.05/0.54/2.1, dsn=2.0.0, status=sent (250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as C864FBBC8)
+Nov  3 00:55:56 gomailer postfix/qmgr[5112]: B7B382CF: removed
+Nov  3 00:55:56 gomailer postfix/lmtp[5388]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:55:56 gomailer dovecot: lmtp(5389): Connect from local
+Nov  3 00:55:56 gomailer dovecot: lmtp(admin)<5389><HU3GN5wRY2MNFQAAjDvtHA>: sieve: msgid=<6f6221e0-72bf-c6a2-9a56-3a272deb7bae@gomail.cl>: stored mail into mailbox 'INBOX'
+Nov  3 00:55:56 gomailer postfix/lmtp[5388]: C864FBBC8: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.18, delays=0.01/0.04/0.07/0.06, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> HU3GN5wRY2MNFQAAjDvtHA Saved)
+Nov  3 00:55:56 gomailer postfix/qmgr[5112]: C864FBBC8: removed
+Nov  3 00:55:57 gomailer dovecot: lmtp(5389): Disconnect from local: Logged out (state=READY)
+Nov  3 00:58:13 gomailer postfix/10025/smtpd[5371]: timeout after END-OF-MESSAGE from localhost[127.0.0.1]
+Nov  3 00:58:13 gomailer postfix/10025/smtpd[5371]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 commands=4
+Nov  3 00:59:14 gomailer postfix/anvil[5360]: statistics: max connection rate 1/60s for (smtp:179.43.126.3) at Nov  3 00:52:56
+Nov  3 00:59:14 gomailer postfix/anvil[5360]: statistics: max connection count 1 for (smtp:179.43.126.3) at Nov  3 00:52:56
+Nov  3 00:59:14 gomailer postfix/anvil[5360]: statistics: max cache size 1 at Nov  3 00:52:56
+Nov  3 01:00:56 gomailer postfix/10025/smtpd[5386]: timeout after END-OF-MESSAGE from localhost[127.0.0.1]
+Nov  3 01:00:56 gomailer postfix/10025/smtpd[5386]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 commands=4
+Nov  3 01:02:15 gomailer postfix/smtpd[5509]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:15 gomailer postfix/proxymap[5510]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:16 gomailer postfix/smtpd[5509]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 01:02:16 gomailer postfix/anvil[5511]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:16 gomailer postfix/smtpd[5509]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits)
+Nov  3 01:02:16 gomailer postfix/cleanup[5512]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:16 gomailer postfix/smtpd[5509]: 63BEE2CF: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  3 01:02:16 gomailer postfix/cleanup[5512]: 63BEE2CF: message-id=<7817582d-200d-3ede-1496-5b18e96db409@gomail.cl>
+Nov  3 01:02:16 gomailer spamd[1277]: spamd: connection from ::1 [::1]:43576 to port 783, fd 5
+Nov  3 01:02:16 gomailer spamd[1277]: spamd: setuid to admin succeeded
+Nov  3 01:02:16 gomailer spamd[1277]: spamd: processing message <7817582d-200d-3ede-1496-5b18e96db409@gomail.cl> for admin:1002
+Nov  3 01:02:16 gomailer spamd[5514]: util: setuid: ruid=1002 euid=1002 rgid=1002 1002 egid=1002 1002 
+Nov  3 01:02:20 gomailer spamd[1277]: spamd: clean message (0.2/5.0) for admin:1002 in 3.6 seconds, 4534 bytes.
+Nov  3 01:02:20 gomailer spamd[1277]: spamd: result: . 0 - DKIM_INVALID,DKIM_SIGNED,SPF_HELO_PASS,SPF_PASS scantime=3.6,size=4534,user=admin,uid=1002,required_score=5.0,rhost=::1,raddr=::1,rport=43576,mid=<7817582d-200d-3ede-1496-5b18e96db409@gomail.cl>,autolearn=no autolearn_force=no
+Nov  3 01:02:20 gomailer postfix/qmgr[5112]: 63BEE2CF: from=<admin@gomail.cl>, size=4809, nrcpt=1 (queue active)
+Nov  3 01:02:20 gomailer postfix/smtpd[5509]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Nov  3 01:02:20 gomailer postfix/smtp[5515]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:20 gomailer spamd[1034]: prefork: child states: II
+Nov  3 01:02:21 gomailer postfix/10025/smtpd[5386]: connect from localhost[127.0.0.1]
+Nov  3 01:02:21 gomailer postfix/10025/smtpd[5386]: BFDFABBC8: client=localhost[127.0.0.1]
+Nov  3 01:02:21 gomailer postfix/cleanup[5512]: BFDFABBC8: message-id=<7817582d-200d-3ede-1496-5b18e96db409@gomail.cl>
+Nov  3 01:02:21 gomailer postfix/qmgr[5112]: BFDFABBC8: from=<admin@gomail.cl>, size=5048, nrcpt=1 (queue active)
+Nov  3 01:02:21 gomailer postfix/10025/smtpd[5386]: disconnect from localhost[127.0.0.1] ehlo=1 mail=1 rcpt=1 data=1 quit=1 commands=5
+Nov  3 01:02:21 gomailer amavis[4553]: (04553-02) Passed CLEAN {RelayedInbound}, [179.43.126.3]:42896 [191.114.192.64] <admin@gomail.cl> -> <admin@gomailer.tk>, Queue-ID: 63BEE2CF, Message-ID: <7817582d-200d-3ede-1496-5b18e96db409@gomail.cl>, mail_id: M0E11TWgQn4H, Hits: 0.198, size: 4675, queued_as: BFDFABBC8, 1623 ms
+Nov  3 01:02:21 gomailer postfix/amavis/smtp[5515]: 63BEE2CF: to=<admin@gomailer.tk>, relay=127.0.0.1[127.0.0.1]:10024, delay=5.4, delays=3.8/0.04/0.03/1.6, dsn=2.0.0, status=sent (250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as BFDFABBC8)
+Nov  3 01:02:21 gomailer postfix/qmgr[5112]: 63BEE2CF: removed
+Nov  3 01:02:21 gomailer postfix/local[5519]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:21 gomailer postfix/local[5519]: BFDFABBC8: passing <admin@gomailer.tk> to transport=lmtp
+Nov  3 01:02:21 gomailer postfix/lmtp[5520]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 01:02:21 gomailer dovecot: lmtp(5521): Connect from local
+Nov  3 01:02:21 gomailer dovecot: lmtp(admin)<5521><EBErNB0TY2ORFQAAjDvtHA>: sieve: msgid=<7817582d-200d-3ede-1496-5b18e96db409@gomail.cl>: stored mail into mailbox 'INBOX'
+Nov  3 01:02:21 gomailer postfix/lmtp[5520]: BFDFABBC8: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.14, delays=0.01/0.03/0.05/0.05, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> EBErNB0TY2ORFQAAjDvtHA Saved)
+Nov  3 01:02:21 gomailer postfix/qmgr[5112]: BFDFABBC8: removed
+Nov  3 01:02:21 gomailer dovecot: lmtp(5521): Disconnect from local: Logged out (state=READY)
+Nov  3 01:05:40 gomailer postfix/anvil[5511]: statistics: max connection rate 1/60s for (smtp:179.43.126.3) at Nov  3 01:02:16
+Nov  3 01:05:40 gomailer postfix/anvil[5511]: statistics: max connection count 1 for (smtp:179.43.126.3) at Nov  3 01:02:16
+Nov  3 01:05:40 gomailer postfix/anvil[5511]: statistics: max cache size 1 at Nov  3 01:02:16
+Nov  3 01:07:42 gomailer dovecot: imap(admin)<5352><XW2cX4bsytW/csBA>: Disconnected: Logged out in=122 out=735 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 01:07:42 gomailer dovecot: imap(admin)<5354><GS/iX4bsy9W/csBA>: Disconnected: Logged out in=342 out=2123 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Nov  3 01:07:42 gomailer dovecot: imap(admin)<5356><IuzvX4bszNW/csBA>: Disconnected: Logged out in=2026 out=23821 deleted=0 expunged=0 trashed=0 hdr_count=6 hdr_bytes=1083 body_count=6 body_bytes=16727
+Nov  3 23:28:43 gomailer postfix/sendmail[5835]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:43 gomailer postmulti[5834]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:43 gomailer postfix[5836]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:43 gomailer postfix[5836]: Postfix is running with backwards-compatible default settings
+Nov  3 23:28:43 gomailer postfix[5836]: See http://www.postfix.org/COMPATIBILITY_README.html for details
+Nov  3 23:28:43 gomailer postfix[5836]: To disable backwards compatibility use "postconf compatibility_level=3.6" and "postfix reload"
+Nov  3 23:28:43 gomailer postfix/postqueue[5835]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/master[5841]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/postlog[5842]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/postfix-script[5842]: refreshing the Postfix mail system
+Nov  3 23:28:44 gomailer postfix/postsuper[5843]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/postsuper[5845]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/master[5109]: reload -- version 3.6.4, configuration /etc/postfix
+Nov  3 23:28:44 gomailer postfix/master[5109]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/pickup[5847]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 23:28:44 gomailer postfix/qmgr[5848]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 00:35:12 gomailer postfix/smtpd[22073]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 00:35:12 gomailer postfix/proxymap[22074]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 00:35:12 gomailer postfix/tlsmgr[22075]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 00:35:12 gomailer postfix/submission/smtpd[22073]: connect from scanner-27.ch1.censys-scanner.com[167.94.138.118]
+Nov  4 00:35:12 gomailer postfix/anvil[22076]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 00:35:13 gomailer postfix/submission/smtpd[22073]: Anonymous TLS connection established from scanner-27.ch1.censys-scanner.com[167.94.138.118]: TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Nov  4 00:35:13 gomailer postfix/submission/smtpd[22073]: warning: TLS library problem: error:0A000126:SSL routines::unexpected eof while reading:../ssl/record/rec_layer_s3.c:308:
+Nov  4 00:35:13 gomailer postfix/submission/smtpd[22073]: lost connection after STARTTLS from scanner-27.ch1.censys-scanner.com[167.94.138.118]
+Nov  4 00:35:13 gomailer postfix/submission/smtpd[22073]: disconnect from scanner-27.ch1.censys-scanner.com[167.94.138.118] ehlo=1 starttls=1 commands=2
+Nov  4 00:38:34 gomailer postfix/anvil[22076]: statistics: max connection rate 1/60s for (submission:167.94.138.118) at Nov  4 00:35:12
+Nov  4 00:38:34 gomailer postfix/anvil[22076]: statistics: max connection count 1 for (submission:167.94.138.118) at Nov  4 00:35:12
+Nov  4 00:38:34 gomailer postfix/anvil[22076]: statistics: max cache size 1 at Nov  4 00:35:12
+Nov  4 01:04:10 gomailer dovecot: pop3-login: Disconnected: Connection closed (no auth attempts in 9 secs): user=<>, rip=192.241.206.94, lip=192.168.1.2, session=<uVzIpprsXJ/A8c5e>
+Nov  4 01:06:48 gomailer postfix/pickup[22240]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:08:04 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.211.153, lip=192.168.1.2, mpid=22310, TLS, session=<UhGstJrsIM+/ctOZ>
+Nov  4 01:08:04 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.211.153, lip=192.168.1.2, mpid=22312, TLS, session=<GC2xtJrsJM+/ctOZ>
+Nov  4 01:09:04 gomailer spamd[1034]: spamd: server killed by SIGTERM, shutting down
+Nov  4 01:09:38 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.211.153, lip=192.168.1.2, mpid=22622, TLS, session=<PeFFuprsWc+/ctOZ>
+Nov  4 01:09:38 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=191.114.211.153, lip=192.168.1.2, mpid=22624, TLS, session=<BOlNuprsWs+/ctOZ>
+Nov  4 01:09:59 gomailer spamd[22625]: logger: removing stderr method
+Nov  4 01:10:00 gomailer spamd[22627]: zoom: able to use 395/395 'body_0' compiled rules (100%)
+Nov  4 01:10:02 gomailer spamd[22628]: util: setuid: ruid=0 euid=0 rgid=0 egid=0 
+Nov  4 01:10:03 gomailer spamd[22627]: spamd: server started on IO::Socket::IP [::1]:783, IO::Socket::IP [127.0.0.1]:783 (running version 3.4.6)
+Nov  4 01:10:03 gomailer spamd[22627]: spamd: server pid: 22627
+Nov  4 01:10:03 gomailer spamd[22627]: spamd: server successfully spawned child process, pid 22629
+Nov  4 01:10:03 gomailer spamd[22627]: spamd: server successfully spawned child process, pid 22630
+Nov  4 01:10:03 gomailer spamd[22627]: prefork: child states: IS
+Nov  4 01:10:03 gomailer spamd[22627]: prefork: child states: II
+Nov  4 01:10:32 gomailer amavis[22638]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Nov  4 01:10:32 gomailer amavis[22638]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Nov  4 01:10:34 gomailer amavis[22638]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Nov  4 01:10:34 gomailer amavis[22638]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Nov  4 01:10:34 gomailer amavis[22638]: No $altermime,         not using it
+Nov  4 01:10:34 gomailer amavis[22638]: No ext program for   .zoo, tried: zoo
+Nov  4 01:10:34 gomailer amavis[22638]: No ext program for   .doc, tried: ripole
+Nov  4 01:10:34 gomailer amavis[22638]: No decoder for       .F   
+Nov  4 01:10:34 gomailer amavis[22638]: No decoder for       .doc 
+Nov  4 01:10:34 gomailer amavis[22638]: No decoder for       .zoo 
+Nov  4 01:10:34 gomailer amavis[22638]: Using primary internal av scanner code for ClamAV-clamd
+Nov  4 01:10:34 gomailer amavis[22638]: Found secondary av scanner ClamAV-clamscan at /usr/bin/clamscan
+Nov  4 01:12:52 gomailer postfix/smtpd[22809]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:12:52 gomailer postfix/proxymap[22810]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:12:52 gomailer postfix/smtpd[22809]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  4 01:12:52 gomailer postfix/anvil[22811]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:12:53 gomailer postfix/smtpd[22809]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Nov  4 01:12:53 gomailer postfix/trivial-rewrite[22812]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:12:53 gomailer postfix/cleanup[22813]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  4 01:12:53 gomailer postfix/smtpd[22809]: B1098158: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Nov  4 01:12:53 gomailer postfix/cleanup[22813]: B1098158: message-id=<2db9cd93-42db-55f8-acbf-812347dd4e17@gomail.cl>
+Nov  4 01:12:54 gomailer spamd[22629]: spamd: connection from ::1 [::1]:54146 to port 783, fd 5
+Nov  4 01:12:54 gomailer spamd[22629]: spamd: setuid to admin succeeded
+Nov  4 01:12:56 gomailer spamd[22629]: spamd: processing message <2db9cd93-42db-55f8-acbf-812347dd4e17@gomail.cl> for admin:1002

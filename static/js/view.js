@@ -44,13 +44,11 @@ function filtrar(obj){
   */
 
 	var status = obj.value;
-	
 	var tbody = $("#dataBody").find('tr')
 	
 	$("#dataBody tr").each(function(){
 
 		var clase = $(this).attr('class');
-	
 		if (clase != status && status != "default")
 		{
 				$(this).hide();
@@ -61,7 +59,7 @@ function filtrar(obj){
 	
 	})
 }
-function update(){
+function update(update){
   /*
     Descarga los logs nuevamente y los muestra dentro 
     de la pagina
@@ -73,28 +71,26 @@ function update(){
 	var id_log = $("#sel_log option:selected").val();
 	$.ajax({
 		async: true,
-		url:'/updateLog',
-		data:{'id':id,'id_log':id_log},
+		url:'/updateOne',
+		data:{'id':id,'id_log':id_log,'descargar':update},
 		type:'POST',
 		success: function(resp){
-			//console.log(resp)
-
 			if(resp['status'] == 200){
-				html = '<div class="alert alert-success" role="alert">'
-  				html += "Datos cargados! "
-				html +='</div>'	
+			 	html = '<div class="alert alert-success" role="alert">'
+  	 		html += "Datos cargados! "
+		 	  html +='</div>'	
 				
-				data  = resp['data']
+				data  = resp['estados']
 				count = resp['count']
 
 				table_data = "" 
 				for(var i =0 ; i < data.length ; i++){
-					table_data += "<tr class='"+data[i]['Status'] +"'>"
-					console.log(table_data)
-					table_data += "<td>" + parserDate(data[i]['Date']) + "</td>"			
-					table_data += "<td>" + data[i]['To'] + "</td>"
-					table_data += "<td>" + data[i]['Status'] + "</td>"
-					table_data += "<td>" + data[i]['Relay'] + "</td>"
+					table_data += "<tr class='"+data[i]['estado'] +"'>"
+					table_data += "<td>" + parserDate(data[i]['fecha']) + "</td>"			
+					table_data += "<td>" + data[i]['para'] + "</td>"
+					table_data += "<td>" + data[i]['de'] + "</td>"
+					table_data += "<td>" + data[i]['estado'] + "</td>"
+					table_data += "<td>" + data[i]['relay'] + "</td>"
 					table_data +="</tr>"
 				}
 
@@ -114,7 +110,7 @@ function update(){
 			}
 			
 			$("#cont_chart").html('<canvas id="chart" style="width:100%;max-height:200px;"></canvas>')
-			viewChart(resp['data'])
+			viewChart(data)
 			$("#reload").prop('disabled', false);
 			$("#alerta").html()
 			$("#alerta").html(html)
@@ -149,6 +145,11 @@ function update(){
 
 
 }
+
+
+
+
+
 function viewChart(log_data)
 {
     var fecha_actual = new Date()
@@ -159,27 +160,27 @@ function viewChart(log_data)
 
     for ( i in log_data)
     {
-      fecha  = new Date(log_data[i]['Date'])
-      relay  = log_data[i]['Relay']
-      status = log_data[i]['Status']
-      to     = log_data[i]['To']
+      fecha  = new Date(log_data[i]['fecha'])
+      relay  = log_data[i]['relay']
+      status = log_data[i]['estado']
+      to     = log_data[i]['de']
 
       if(fecha_actual.getDate() == fecha.getDate() && fecha_actual.getMonth() && fecha.getMonth())
       {
         // Analizar el status 
         if ( status == "sent"){
-          aSend.push({x: parserDate(log_data[i]['Date']), y:1})
+          aSend.push({x: parserDate(log_data[i]['fecha']), y:1})
         }
         
         if (status == "bounced"){
-          aBounced.push({x: parserDate(log_data[i]['Date']), y:1})
+          aBounced.push({x: parserDate(log_data[i]['fecha']), y:1})
         }
         
         if(status == "delivered"){
-          aDelivered.push({x: parserDate(log_data[i]['Date']), y:1})
+          aDelivered.push({x: parserDate(log_data[i]['fecha']), y:1})
         }
 
-        aLabels.push(parserDate(log_data[i]['Date']))
+        aLabels.push(parserDate(log_data[i]['fecha']))
       }
     
 

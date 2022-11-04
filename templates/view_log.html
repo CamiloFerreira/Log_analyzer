@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="{{url_for('static',filename='js/view.js')}}"></script>
 	<script type="text/javascript">
 		function load_function() {
-			viewChart({{dic | tojson}})
+			viewChart({{ dic | tojson}})
 		}
 		window.onload = load_function
 	</script>
@@ -17,7 +17,7 @@
 			
 			<div class="row ml-2">
 				{% for status in count %}
-					<div class="card" style="width: 13rem;">
+					<div class="card" style="width: 11rem;">
   						<div class="card-body" id='{{status.lower()}}'>
     						<h6 class="card-subtitle mb-2 text-muted">{{status.capitalize()}}</h6>
     						<p class="card-text text-center display-4" >{{count[status]}}</p>
@@ -59,8 +59,7 @@
 						</div>
 
 						<div class="col">
-							
-							<select id="sel_log" class="form-control custom-select" onchange="" >
+							<select id="sel_log" class="form-control custom-select" onchange="update(false)">
 								{% for  i in range( log_list | length ) %}
 								<option value="{{i}}">{{log_list[i]}} </option> 
 								{%endfor%}
@@ -69,10 +68,7 @@
 						</div>
 
 						<div class="col">
-							<button id="reload" onclick="update()" class="btn btn-success"><i class="icon ion-md-refresh"></i> Recargar logs</button>
-						</div>
-						<div class="col">
-							<button class="btn btn-success"> Descargar CSV</button>
+							<button id="reload" class="btn btn-success"><i class="icon ion-md-refresh"></i> Recargar logs</button>
 						</div>
 					</div>
 				
@@ -95,7 +91,9 @@
 					<thead class="thead-dark">
 						<tr>
 							{% for key in dic[0] %}
-								<th space="col">{{key}} </th>
+								{% if key != 'id_host' and key != 'id_log' %}
+								<th space="col">{{key.capitalize()}} </th>
+								{% endif %}
 							{% endfor %}
 											
 						</tr>
@@ -103,10 +101,11 @@
 					
 					<tbody id="dataBody" >
 						{% for item in dic %}
-							<tr class="{{item['Status']}}">
+							<tr class="{{item['estado']}}">
 								{% for key in item %}
-
-									<td > {{ item[key]  }} </td>
+								    {% if key != 'id_host' and key != 'id_log' %}
+										<td > {{ item[key]  }} </td>
+								    {% endif %}
 								{% endfor %}
 							</tr>
 					    {% endfor %}

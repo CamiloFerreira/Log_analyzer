@@ -1,36 +1,30 @@
 from flask import Blueprint,render_template,request,redirect
-
-from conf import *
+from conf import db,key
 from tools import *
 from datetime import datetime
-
-import json , cryptocode
-
-
-## Variables globales
-dir_hosts = get_hosts()
-dir_smtp  = get_smtp()
-key       = get_key()
+from os import path 
+import cryptocode
 
 page_home = Blueprint('home',__name__,template_folder='templates')
 
+
+
 @page_home.route("/")
 def home():
+	firstExecution = True 
+	data = [{'id_host': 0,'hostname':'example','ip':'none','usuario':'none','clave':'none','fecha_act':'none'}]
+	count = 0
 
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)
+	#Comprueba si es la primera ejecucion del programa
+	db.createServidores()
+	db.createEstados()
+	db.createSpam()
+	db.createVirus()
 
-
-	if(data[0]['Hostname'] != 'example.com'):
+	if(db.getServidores() != []):
 		firstExecution = False
-	else:
-		firstExecution = True
-
-
-	count = {
-		'cantidad':len(data),
-		'update' : data[0]['Update']
-	}
+		count = len(db.getServidores())
+		data = db.getServidores()
 
 	return render_template('index.html',first=firstExecution, count=count,data=data)
 
@@ -44,6 +38,8 @@ def checkConnection():
 	t = TestConection(r['ip'],r['user'],r['password'])
 	return {'status':'OK','respuesta':t}
 
+
+
 ## Tambien se utiliza en apartado ver logs
 @page_home.route('/updateLog',methods=['POST'])
 def updateLog():
@@ -54,61 +50,21 @@ def updateLog():
 		para el caso del index
 	
 		id[] -> obtendra un lista por post, lista de los indices para descargar los logs
-  
-		para el caso de view_log
-  
-		id -> obtendra un int , para descargar solamente los logs de un "Hostname"
-	
+  	
  	"""
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)
 	r = request.form
-	
+	data = db.getServidores()
 	if(len(r.getlist('id[]')) >= 1):
-
 		##Actualiza para todos
 		for val in r.getlist('id[]'):
 			val = int(val)
-			password = cryptocode.decrypt(data[val]['Pass'], key)
-			DescargarLog(data[val]['Hostname'],data[val]['IP'],data[val]['User'],password)
+			password = cryptocode.decrypt(data[val]['clave'], key)
+			DescargarLog(data[val]['hostname'],data[val]['ip'],data[val]['usuario'],password)
 			date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
 			date = str(dateparser.parse(date))
-
-			data[val]['Update'] = date
-
-		with open(dir_hosts,'w') as file:
-			json.dump(data,file,indent=4)	
+			db.updateFecha(val,date)		
 		
 		return {'success':'OK','status':200} 
-	else:
-		###Caso para cuando se manda solo un id
-		try :
-			### Comprueba que sea un numero
-			pos = int(r['id'])
-			log_id = int(r['id_log'])
-			password = cryptocode.decrypt(data[pos]['Pass'], key)
-			DescargarLog(data[pos]['Hostname'],data[pos]['IP'],data[pos]['User'],password)
-
-			hostname = data[pos]['Hostname']
-			if(len(hostname.split(".")) > 1): 
-				hostname = hostname.split(".")[0]
-			
-
-			contenido = os.listdir("Logs/"+hostname+"/")
-			log_data = ProcesarLog(data[pos]['Hostname'],contenido[log_id])
-			count_status = CountStatus(log_data)
-
-
-			date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
-			date = str(dateparser.parse(date))
-
-			data[pos]['Update'] = date
-
-			with open(dir_hosts,'w') as file:
-				json.dump(data,file,indent=4)
-			return {'success':'OK','status':200,'count':count_status,'data':log_data} 
-		except (ValueError or Exception) as e :
-			return {'success':'Error','status':400,'data':'NULL'} 
 	###
 
 @page_home.route("/addDomain",methods=['POST'])
@@ -119,20 +75,30 @@ def addDomain():
 
 	'''
 	r = request.form
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)
 
 	date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
 	date = str(dateparser.parse(date))
-
 	password = cryptocode.encrypt(r['password'],key) 
+
+	row = {'hostname':r['hostname'],'ip':r['ip'],'usuario':r['user'],'clave':password,"fecha_act":date}
+	id_host = db.insertarServidores(row)
 	
+	DescargarLog(r['hostname'],r['ip'],r['user'],r['password'])
 
-	if(data[0]['Hostname'] == "example.com"):
-		data = [{'Hostname':r['hostname'],'IP':r['ip'],'User':r['user'],'Pass':password,"Update":date}]
-	else:
-		data.append({'Hostname':r['hostname'],'IP':r['ip'],'User':r['user'],'Pass':password,"Update":date})
+	hostname = str(r['hostname'].split(".")[0])
+	contenido = os.listdir("Logs/"+hostname+"/")
+	estados = ProcesarLog(r['hostname'])
 
-	with open(dir_hosts,'w') as file:
-		json.dump(data,file,indent=4)
+	date = datetime.now().strftime("%d %B, %Y %H:%M:%S")
+	date = str(dateparser.parse(date))
+	db.updateFecha(id_host,date)
+	db.deleteEstado(id_host,0)
+
+	for est in estados:
+		est['id_host'] = id_host
+		est['id_log']  = 0
+
+	db.insertarEstados(estados)
+
+
 	return redirect("/")

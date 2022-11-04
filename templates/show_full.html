@@ -27,7 +27,7 @@
 					<span>Dominio del servidor:</span>
 						<select id="sel_serv"class="form-control" onchange="cambiar(this)">
 								{% for i in range( data | length )  %}
-									<option value="{{i}}"  >{{data[i]['Hostname']}}</option>
+									<option value="{{i}}"  >{{data[i]['hostname']}}</option>
 								{% endfor %}
 						</select>	
 				</div>

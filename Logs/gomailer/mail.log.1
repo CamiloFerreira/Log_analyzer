@@ -1,0 +1,228 @@
+Oct 23 18:42:38 gomailer postfix/trivial-rewrite[1870]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:38 gomailer postfix/pickup[1869]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:38 gomailer postfix/local[1888]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:38 gomailer postfix/local[1888]: 6DECB8986: passing <root@gomailer.tk> to transport=lmtp
+Oct 23 18:42:38 gomailer postfix/lmtp[1892]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:38 gomailer dovecot: lmtp(1908): Connect from local
+Oct 23 18:42:38 gomailer dovecot: lmtp(1908): Error: lmtp-server: conn unix:pid=1892,uid=113 [1]: rcpt root@gomailer.tk: Failed to lookup user root@gomailer.tk: Invalid settings in userdb: userdb returned 0 as uid
+Oct 23 18:42:39 gomailer postfix/bounce[1940]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:39 gomailer postfix/lmtp[1892]: 6DECB8986: to=<root@gomailer.tk>, orig_to=<root>, relay=gomailer.tk[private/dovecot-lmtp], delay=856634, delays=856633/0.24/0.29/0.24, dsn=4.3.0, status=deferred (host gomailer.tk[private/dovecot-lmtp] said: 451 4.3.0 <root@gomailer.tk> Temporary internal error (in reply to RCPT TO command))
+Oct 23 18:42:39 gomailer dovecot: lmtp(1908): Disconnect from local: Logged out (state=READY)
+Oct 23 18:42:39 gomailer postfix/qmgr[1742]: 6DECB8986: from=<lferreira@gomailer.tk>, status=expired, returned to sender
+Oct 23 18:42:39 gomailer postfix/cleanup[1943]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:42:39 gomailer postfix/cleanup[1943]: 1825C9772: message-id=<20221023184239.1825C9772@gomailer.tk>
+Oct 23 18:42:39 gomailer postfix/qmgr[1742]: 1825C9772: from=<>, size=2407, nrcpt=1 (queue active)
+Oct 23 18:42:39 gomailer postfix/local[1888]: 1825C9772: passing <lferreira@gomailer.tk> to transport=lmtp
+Oct 23 18:42:39 gomailer dovecot: lmtp(1908): Connect from local
+Oct 23 18:42:39 gomailer postfix/bounce[1940]: 6DECB8986: sender non-delivery notification: 1825C9772
+Oct 23 18:42:39 gomailer postfix/qmgr[1742]: 6DECB8986: removed
+Oct 23 18:42:39 gomailer dovecot: lmtp(lferreira)<1908><AHbmBx+LVWN0BwAAjDvtHA>: msgid=<20221023184239.1825C9772@gomailer.tk>: saved mail to INBOX
+Oct 23 18:42:39 gomailer postfix/lmtp[1892]: 1825C9772: to=<lferreira@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.18, delays=0.07/0.01/0.01/0.09, dsn=2.0.0, status=sent (250 2.0.0 <lferreira@gomailer.tk> AHbmBx+LVWN0BwAAjDvtHA Saved)
+Oct 23 18:42:39 gomailer postfix/qmgr[1742]: 1825C9772: removed
+Oct 23 18:42:39 gomailer dovecot: lmtp(1908): Disconnect from local: Logged out (state=READY)
+Oct 23 18:42:41 gomailer dovecot: imap(1810): Warning: Time jumped forwards 856442.196569 seconds
+Oct 23 18:42:46 gomailer postfix/anvil[1800]: statistics: max connection rate 5/60s for (submission:181.162.119.41) at Oct 13 20:46:07
+Oct 23 18:42:46 gomailer postfix/anvil[1800]: statistics: max connection count 2 for (submission:181.162.119.41) at Oct 13 20:45:43
+Oct 23 18:42:46 gomailer postfix/anvil[1800]: statistics: max cache size 2 at Oct 13 20:45:43
+Oct 23 18:42:59 gomailer dovecot: imap(1817): Warning: Time jumped forwards 856442.209814 seconds
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba43132590 leaked (parent=0x55ba43129730): mail-storage-service.c:1350
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba43129730 leaked (parent=0x55ba4312cdd0): smtp-server-recipient.c:42
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba4312cdd0 leaked (parent=0x55ba43124360): smtp-server-transaction.c:59
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba43124360 leaked (parent=0x55ba43123630): connection.c:541
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba43123630 leaked (parent=0x55ba4310c620): smtp-server-connection.c:773
+Oct 23 18:43:39 gomailer dovecot: lmtp(1908): Warning: Event 0x55ba4310c620 leaked (parent=(nil)): lmtp-client.c:173
+Oct 23 18:47:50 gomailer postfix/sendmail[2864]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:50 gomailer postfix/postdrop[2865]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:50 gomailer postfix/cleanup[2866]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:50 gomailer postfix/pickup[1869]: 1B18B980A: uid=1000 from=<lferreira@gomailer.tk>
+Oct 23 18:47:50 gomailer postfix/trivial-rewrite[2867]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:50 gomailer postfix/cleanup[2866]: 1B18B980A: message-id=<20221023184750.1B18B980A@gomailer.tk>
+Oct 23 18:47:50 gomailer postfix/qmgr[1742]: 1B18B980A: from=<lferreira@gomailer.tk>, size=362, nrcpt=1 (queue active)
+Oct 23 18:47:50 gomailer postfix/smtp[2868]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:51 gomailer postfix/smtp[2868]: Trusted TLS connection established to mail.mailercyber1.com[154.53.37.147]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:47:52 gomailer postfix/bounce[2869]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:52 gomailer postfix/smtp[2868]: 1B18B980A: to=<admin@mailercyber1.com>, relay=mail.mailercyber1.com[154.53.37.147]:25, delay=2, delays=0.08/0.04/1.7/0.17, dsn=5.7.1, status=bounced (host mail.mailercyber1.com[154.53.37.147] said: 554 5.7.1 <admin@mailercyber1.com>: Relay access denied (in reply to RCPT TO command))
+Oct 23 18:47:52 gomailer postfix/cleanup[2866]: 2D9CC980C: message-id=<20221023184752.2D9CC980C@gomailer.tk>
+Oct 23 18:47:52 gomailer postfix/qmgr[1742]: 2D9CC980C: from=<>, size=2280, nrcpt=1 (queue active)
+Oct 23 18:47:52 gomailer postfix/bounce[2869]: 1B18B980A: sender non-delivery notification: 2D9CC980C
+Oct 23 18:47:52 gomailer postfix/qmgr[1742]: 1B18B980A: removed
+Oct 23 18:47:52 gomailer postfix/local[2871]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:52 gomailer postfix/local[2871]: 2D9CC980C: passing <lferreira@gomailer.tk> to transport=lmtp
+Oct 23 18:47:52 gomailer postfix/lmtp[2872]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:47:52 gomailer dovecot: lmtp(2873): Connect from local
+Oct 23 18:47:52 gomailer dovecot: lmtp(lferreira)<2873><qi20GliMVWM5CwAAjDvtHA>: msgid=<20221023184752.2D9CC980C@gomailer.tk>: saved mail to INBOX
+Oct 23 18:47:52 gomailer postfix/lmtp[2872]: 2D9CC980C: to=<lferreira@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.35, delays=0.01/0.02/0.23/0.09, dsn=2.0.0, status=sent (250 2.0.0 <lferreira@gomailer.tk> qi20GliMVWM5CwAAjDvtHA Saved)
+Oct 23 18:47:52 gomailer postfix/qmgr[1742]: 2D9CC980C: removed
+Oct 23 18:47:52 gomailer dovecot: lmtp(2873): Disconnect from local: Logged out (state=READY)
+Oct 23 18:48:33 gomailer postfix/smtpd[2878]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer postfix/smtpd[2879]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<6Ro1H7jrBv+1on3P>
+Oct 23 18:48:33 gomailer postfix/proxymap[2881]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<78A1H7jrBf+1on3P>
+Oct 23 18:48:33 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<hxM3H7jrCP+1on3P>
+Oct 23 18:48:33 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<rMM3H7jrB/+1on3P>
+Oct 23 18:48:33 gomailer postfix/smtpd[2879]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:33 gomailer postfix/submission/smtpd[2878]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:33 gomailer postfix/smtpd[2886]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer postfix/smtpd[2885]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer dovecot: pop3-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<EjU5H7jrDv+1on3P>
+Oct 23 18:48:33 gomailer postfix/anvil[2888]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:48:33 gomailer dovecot: imap-login: Disconnected: Aborted login by logging out (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<QKg5H7jrDf+1on3P>
+Oct 23 18:48:33 gomailer postfix/smtpd[2879]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:33 gomailer postfix/smtpd[2879]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:33 gomailer postfix/submission/smtpd[2878]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:33 gomailer postfix/submission/smtpd[2878]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:33 gomailer postfix/smtpd[2879]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/smtpd[2879]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:34 gomailer dovecot: pop3-login: Disconnected: Connection closed (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<F/I6H7jrEP+1on3P>
+Oct 23 18:48:34 gomailer postfix/smtpd[2879]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:34 gomailer dovecot: imap-login: Disconnected: Connection closed (no auth attempts in 0 secs): user=<>, rip=181.162.125.207, lip=192.168.1.2, session=<5047H7jrD/+1on3P>
+Oct 23 18:48:34 gomailer postfix/smtpd[2879]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/smtpd[2879]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: improper command pipelining after EHLO from 181-162-125-207.baf.movistar.cl[181.162.125.207]: QUIT\r\n
+Oct 23 18:48:34 gomailer postfix/smtpd[2879]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2878]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=1 quit=1 commands=2
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2885]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/smtpd[2886]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2885]: lost connection after CONNECT from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/submission/smtpd[2885]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] commands=0/0
+Oct 23 18:48:34 gomailer postfix/smtpd[2886]: lost connection after CONNECT from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:48:34 gomailer postfix/smtpd[2886]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] commands=0/0
+Oct 23 18:48:36 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=2892, TLS, session=<LBhXH7jrFf+1on3P>
+Oct 23 18:48:36 gomailer dovecot: imap(admin)<2892><LBhXH7jrFf+1on3P>: Disconnected: Connection closed (No commands sent) in=0 out=416 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 23 18:48:37 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=2896, TLS, session=<ItBhH7jrFv+1on3P>
+Oct 23 18:48:37 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=2897, TLS, session=<UNViH7jrF/+1on3P>
+Oct 23 18:48:41 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=2899, TLS, session=<fY6oH7jrH/+1on3P>
+Oct 23 18:49:28 gomailer postfix/submission/smtpd[2878]: connect from 181-162-125-207.baf.movistar.cl[181.162.125.207]
+Oct 23 18:49:28 gomailer postfix/submission/smtpd[2878]: Anonymous TLS connection established from 181-162-125-207.baf.movistar.cl[181.162.125.207]: TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:49:28 gomailer postfix/submission/smtpd[2878]: C3169980A: client=181-162-125-207.baf.movistar.cl[181.162.125.207], sasl_method=PLAIN, sasl_username=admin
+Oct 23 18:49:28 gomailer postfix/cleanup[2866]: C3169980A: message-id=<652c34f7-46f7-51d0-7fc4-f49099ea0f12@gomailer.tk>
+Oct 23 18:49:28 gomailer postfix/qmgr[1742]: C3169980A: from=<admin@gomailer.tk>, size=620, nrcpt=1 (queue active)
+Oct 23 18:49:28 gomailer postfix/submission/smtpd[2878]: disconnect from 181-162-125-207.baf.movistar.cl[181.162.125.207] ehlo=2 starttls=1 auth=1 mail=1 rcpt=1 data=1 quit=1 commands=8
+Oct 23 18:49:29 gomailer dovecot: imap(admin)<2899><fY6oH7jrH/+1on3P>: Disconnected: Logged out in=888 out=3408 deleted=0 expunged=0 trashed=0 hdr_count=2 hdr_bytes=510 body_count=2 body_bytes=877
+Oct 23 18:49:29 gomailer postfix/smtp[2868]: Trusted TLS connection established to gomail.cl[179.43.126.3]:25: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:49:30 gomailer postfix/smtp[2868]: C3169980A: to=<admin@gomail.cl>, relay=gomail.cl[179.43.126.3]:25, delay=2, delays=0.05/0/0.99/0.92, dsn=2.0.0, status=sent (250 2.0.0 Ok: queued as 3956920797)
+Oct 23 18:49:30 gomailer postfix/qmgr[1742]: C3169980A: removed
+Oct 23 18:49:57 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=3007, TLS, session=<Bb80JLjrJf+1on3P>
+Oct 23 18:50:10 gomailer postfix/smtpd[2879]: connect from vps-2842937-x.dattaweb.com[179.43.126.3]
+Oct 23 18:50:11 gomailer postfix/smtpd[2879]: Anonymous TLS connection established from vps-2842937-x.dattaweb.com[179.43.126.3]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:50:11 gomailer postfix/smtpd[2879]: 2C4CD980A: client=vps-2842937-x.dattaweb.com[179.43.126.3]
+Oct 23 18:50:11 gomailer postfix/cleanup[2866]: 2C4CD980A: message-id=<bad61606-65ce-1cf5-8080-0a206aea75c0@gomail.cl>
+Oct 23 18:50:11 gomailer postfix/qmgr[1742]: 2C4CD980A: from=<admin@gomail.cl>, size=1606, nrcpt=1 (queue active)
+Oct 23 18:50:11 gomailer postfix/smtpd[2879]: disconnect from vps-2842937-x.dattaweb.com[179.43.126.3] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Oct 23 18:50:11 gomailer postfix/local[3008]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:50:11 gomailer postfix/local[3008]: 2C4CD980A: passing <admin@gomailer.tk> to transport=lmtp
+Oct 23 18:50:11 gomailer postfix/lmtp[3009]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:50:11 gomailer dovecot: lmtp(3010): Connect from local
+Oct 23 18:50:11 gomailer dovecot: lmtp(admin)<3010><tKObEuOMVWPCCwAAjDvtHA>: msgid=<bad61606-65ce-1cf5-8080-0a206aea75c0@gomail.cl>: saved mail to INBOX
+Oct 23 18:50:11 gomailer postfix/lmtp[3009]: 2C4CD980A: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.16, delays=0.07/0.02/0.05/0.02, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> tKObEuOMVWPCCwAAjDvtHA Saved)
+Oct 23 18:50:11 gomailer postfix/qmgr[1742]: 2C4CD980A: removed
+Oct 23 18:50:11 gomailer dovecot: lmtp(3010): Disconnect from local: Logged out (state=READY)
+Oct 23 18:50:41 gomailer dovecot: imap-login: Login: user=<admin>, method=PLAIN, rip=181.162.125.207, lip=192.168.1.2, mpid=3012, TLS, session=<+bHXJrjrKf+1on3P>
+Oct 23 18:51:50 gomailer amavis[3816]: starting. /usr/sbin/amavisd-new at gomailer.tk amavisd-new-2.12.2 (20211013), Unicode aware, LANG="C.UTF-8"
+Oct 23 18:51:50 gomailer amavis[3816]: perl=5.034000, user=116, EUID: 116 (116);  group=, EGID: 123 123 (123 123)
+Oct 23 18:51:50 gomailer amavis[3816]: Net::Server: Group Not Defined.  Defaulting to EGID '123 123'
+Oct 23 18:51:50 gomailer amavis[3816]: Net::Server: User Not Defined.  Defaulting to EUID '116'
+Oct 23 18:51:50 gomailer amavis[3816]: No $altermime,         not using it
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .lrz, tried: lrzip -q -k -d -o -, lrzcat -q -k
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .lzo, tried: lzop -d
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .lz4, tried: lz4c -d
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .rpm, tried: rpm2cpio.pl, rpm2cpio
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .rar, tried: unrar-free
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .arj, tried: arj, unarj
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .arc, tried: nomarch, arc
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .zoo, tried: zoo
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .doc, tried: ripole
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .cab, tried: cabextract
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .zip, tried: 7za, 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .kmz, tried: 7za, 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .7z, tried: 7zr, 7za, 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .jar, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .arj, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .rar, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .swf, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .lha, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .iso, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .cab, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .rpm, tried: 7z
+Oct 23 18:51:50 gomailer amavis[3816]: No ext program for   .exe, tried: unrar-free; arj, unarj
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .7z  
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .F   
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .arc 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .arj 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .cab 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .doc 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .exe 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .iso 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .jar 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .lha 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .lrz 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .lz4 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .lzo 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .rar 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .rpm 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .swf 
+Oct 23 18:51:50 gomailer amavis[3816]: No decoder for       .zoo 
+Oct 23 18:53:26 gomailer postfix/smtpd[4230]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:26 gomailer postfix/proxymap[4231]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:26 gomailer postfix/smtpd[4232]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:27 gomailer postfix/smtpd[4230]: connect from mail.mailercyber1.com[154.53.37.147]
+Oct 23 18:53:27 gomailer postfix/smtpd[4232]: connect from mail.mailercyber1.com[154.53.37.147]
+Oct 23 18:53:27 gomailer postfix/smtpd[4230]: Anonymous TLS connection established from mail.mailercyber1.com[154.53.37.147]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:53:27 gomailer postfix/smtpd[4232]: Anonymous TLS connection established from mail.mailercyber1.com[154.53.37.147]: TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256
+Oct 23 18:53:28 gomailer postfix/trivial-rewrite[4233]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/cleanup[4234]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/smtpd[4230]: 219BC2C7B: client=mail.mailercyber1.com[154.53.37.147]
+Oct 23 18:53:28 gomailer postfix/cleanup[4235]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/smtpd[4232]: 27E942D75: client=mail.mailercyber1.com[154.53.37.147]
+Oct 23 18:53:28 gomailer postfix/cleanup[4234]: 219BC2C7B: message-id=<752335ff-79cf-3fdc-75cf-4be032367914@mailercyber1.com>
+Oct 23 18:53:28 gomailer postfix/qmgr[1742]: 219BC2C7B: from=<admin@mailercyber1.com>, size=11995, nrcpt=1 (queue active)
+Oct 23 18:53:28 gomailer postfix/smtpd[4230]: disconnect from mail.mailercyber1.com[154.53.37.147] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Oct 23 18:53:28 gomailer postfix/local[4236]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/local[4236]: 219BC2C7B: passing <admin@gomailer.tk> to transport=lmtp
+Oct 23 18:53:28 gomailer postfix/cleanup[4235]: 27E942D75: message-id=<f68d1e71-8e75-2ccc-c413-98a77ec5ffdd@mailercyber1.com>
+Oct 23 18:53:28 gomailer postfix/qmgr[1742]: 27E942D75: from=<admin@mailercyber1.com>, size=13738, nrcpt=1 (queue active)
+Oct 23 18:53:28 gomailer postfix/smtpd[4232]: disconnect from mail.mailercyber1.com[154.53.37.147] ehlo=2 starttls=1 mail=1 rcpt=1 data=1 quit=1 commands=7
+Oct 23 18:53:28 gomailer postfix/local[4238]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/lmtp[4237]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer postfix/local[4238]: 27E942D75: passing <admin@gomailer.tk> to transport=lmtp
+Oct 23 18:53:28 gomailer postfix/lmtp[4239]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 18:53:28 gomailer dovecot: lmtp(4240): Connect from local
+Oct 23 18:53:28 gomailer dovecot: lmtp(4241): Connect from local
+Oct 23 18:53:28 gomailer dovecot: lmtp(admin)<4240><JeIjHaiNVWOQEAAAjDvtHA>: msgid=<752335ff-79cf-3fdc-75cf-4be032367914@mailercyber1.com>: saved mail to INBOX
+Oct 23 18:53:28 gomailer postfix/lmtp[4237]: 219BC2C7B: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.52, delays=0.19/0.02/0.18/0.13, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> JeIjHaiNVWOQEAAAjDvtHA Saved)
+Oct 23 18:53:28 gomailer postfix/qmgr[1742]: 219BC2C7B: removed
+Oct 23 18:53:28 gomailer dovecot: lmtp(4240): Disconnect from local: Logged out (state=READY)
+Oct 23 18:53:28 gomailer dovecot: lmtp(admin)<4241><jNMCH6iNVWOREAAAjDvtHA>: msgid=<f68d1e71-8e75-2ccc-c413-98a77ec5ffdd@mailercyber1.com>: saved mail to INBOX
+Oct 23 18:53:28 gomailer postfix/lmtp[4239]: 27E942D75: to=<admin@gomailer.tk>, relay=gomailer.tk[private/dovecot-lmtp], delay=0.52, delays=0.2/0.04/0.16/0.11, dsn=2.0.0, status=sent (250 2.0.0 <admin@gomailer.tk> jNMCH6iNVWOREAAAjDvtHA Saved)
+Oct 23 18:53:28 gomailer postfix/qmgr[1742]: 27E942D75: removed
+Oct 23 18:53:28 gomailer dovecot: lmtp(4241): Disconnect from local: Logged out (state=READY)
+Oct 23 18:56:10 gomailer dovecot: imap(admin)<2896><ItBhH7jrFv+1on3P>: Disconnected: Logged out in=163 out=870 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 23 18:56:10 gomailer dovecot: imap(admin)<3012><+bHXJrjrKf+1on3P>: Disconnected: Logged out in=201 out=1400 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 23 18:56:10 gomailer dovecot: imap(admin)<3007><Bb80JLjrJf+1on3P>: Disconnected: Logged out in=637 out=2758 deleted=0 expunged=0 trashed=0 hdr_count=1 hdr_bytes=245 body_count=0 body_bytes=0
+Oct 23 18:56:10 gomailer dovecot: imap(admin)<2897><UNViH7jrF/+1on3P>: Disconnected: Logged out in=1210 out=33436 deleted=0 expunged=0 trashed=0 hdr_count=4 hdr_bytes=1212 body_count=4 body_bytes=28118
+Oct 23 18:56:48 gomailer postfix/anvil[2888]: statistics: max connection rate 5/60s for (submission:181.162.125.207) at Oct 23 18:49:28
+Oct 23 18:56:48 gomailer postfix/anvil[2888]: statistics: max connection count 2 for (smtp:154.53.37.147) at Oct 23 18:53:27
+Oct 23 18:56:48 gomailer postfix/anvil[2888]: statistics: max cache size 2 at Oct 23 18:48:33
+Oct 23 18:57:00 gomailer dovecot: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:0A00010B:SSL routines::wrong version number (disconnected before auth was ready, waited 0 secs): user=<>, rip=192.241.215.238, lip=192.168.1.2, TLS handshaking: SSL_accept() failed: error:0A00010B:SSL routines::wrong version number, session=<rD5nPbjrAKjA8dfu>
+Oct 23 18:59:12 gomailer dovecot: imap(admin)<1817><mdWPnPDqs+C1oncp>: Disconnected: Connection closed (IDLE running for 0.001 + waiting input for 857505.963 secs, 2 B in + 10 B out, state=wait-input) in=408 out=1979 deleted=0 expunged=0 trashed=0 hdr_count=1 hdr_bytes=245 body_count=0 body_bytes=0
+Oct 23 18:59:19 gomailer dovecot: imap(admin)<1810><3PTfl/DqfuC1oncp>: Disconnected: Connection closed (IDLE running for 0.001 + waiting input for 857529.348 secs, 2 B in + 10 B out, state=wait-input) in=265 out=1779 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 23 19:10:10 gomailer dovecot: imap(1809): Warning: Time jumped forwards 856442.211417 seconds
+Oct 23 19:10:10 gomailer dovecot: imap(admin)<1809><LfPfl/DqfeC1oncp>: Disconnected: Inactivity - no input for 858242 secs in=712 out=1119 deleted=0 expunged=0 trashed=0 hdr_count=0 hdr_bytes=0 body_count=0 body_bytes=0
+Oct 23 19:29:44 gomailer postfix/smtpd[4265]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 19:29:44 gomailer postfix/proxymap[4266]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 19:29:44 gomailer postfix/smtpd[4265]: connect from unknown[152.32.143.202]
+Oct 23 19:29:44 gomailer postfix/anvil[4267]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Oct 23 19:29:46 gomailer postfix/smtpd[4265]: lost connection after CONNECT from unknown[152.32.143.202]
+Oct 23 19:29:46 gomailer postfix/smtpd[4265]: disconnect from unknown[152.32.143.202] commands=0/0
+Oct 23 19:33:06 gomailer postfix/anvil[4267]: statistics: max connection rate 1/60s for (smtp:152.32.143.202) at Oct 23 19:29:44
+Oct 23 19:33:06 gomailer postfix/anvil[4267]: statistics: max connection count 1 for (smtp:152.32.143.202) at Oct 23 19:29:44
+Oct 23 19:33:06 gomailer postfix/anvil[4267]: statistics: max cache size 1 at Oct 23 19:29:44
+Oct 23 19:38:39 gomailer dovecot: pop3-login: Disconnected: Connection closed: read(size=1026) failed: Connection reset by peer (no auth attempts in 1 secs): user=<>, rip=54.172.227.231, lip=192.168.1.2, session=<b4tc0rjrBpU2rOPn>
+Oct 23 19:38:39 gomailer dovecot: pop3-login: Disconnected: Connection closed (no auth attempts in 1 secs): user=<>, rip=54.172.227.231, lip=192.168.1.2, TLS: Connection closed, session=<MaNc0rjrEpU2rOPn>
+Oct 23 20:21:41 gomailer postfix/pickup[4346]: warning: /etc/postfix/main.cf, line 68: overriding earlier entry: smtp_tls_security_level=may
+Nov  3 00:10:17 gomailer dovecot: master: Dovecot v2.3.16 (7e2e900c1a) starting up for imap, lmtp, imap, lmtp, pop3 (core dumps disabled)

@@ -87,7 +87,7 @@
 					<div class="card" style="width: 100%;">
 		  				<div class="card-body">
 		    				<h6 class="card-subtitle mb-2 text-muted">Servidores Actuales </h6>
-		    				<p class="card-text text-center display-4">{{count['cantidad']}}</p>
+		    				<p class="card-text text-center display-4">{{count}}</p>
 		  				</div>
 					</div>
 
@@ -98,7 +98,7 @@
 					<div class="card" style="width: 100%;">
 		  				<div class="card-body">
 		    				<h6 class="card-subtitle mb-2 text-muted">Ultima actualizacion </h6>
-		    				<p class="card-text text-center display-4">{{count['update']}}</p>
+		    				<p class="card-text text-center display-4">{{data[0]['fecha_act']}}</p>
 		  				</div>
 					</div>
 
@@ -133,9 +133,9 @@
 				  		<tr onclick="redirigir({{i}})" class="hosts">
 				  			<th scope="row"> {{i+1}} </th>
 			
-				  			<td id="hostname"> {{data[i]['Hostname']}}</td>
-				  			<td id="ip"> {{data[i]['IP']}}</td>
-				  			<td> {{data[i]['Update']}}</td>
+				  			<td id="hostname"> {{data[i]['hostname']}}</td>
+				  			<td id="ip"> {{data[i]['ip']}}</td>
+				  			<td> {{data[i]['fecha_act']}}</td>
 				  		</tr>
 				  	{% endfor %}
 				  </tbody>

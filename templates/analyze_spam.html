@@ -1,0 +1,117 @@
+{% extends './layout.html' %}
+{% block div %}
+<script type="text/javascript" src="{{url_for('static',filename='js/analyze_spam.js')}}"></script>
+<style type="text/css">
+	
+#sel_servidor{
+	margin-left: -5%;
+}
+</style>
+
+
+	<div class="row" style="height: 800px;">
+		
+		<!-- Mini dashboard de estados -->
+		<div class="col-lg-12">
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link active" aria-current="page" href="{{url}}inboxLog/spam">Puntuacion correos recibidos</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="{{url}}inboxLog/virus">Alertas de Virus</a>
+			  </li>
+
+			  <li class="nav-item ml-auto">
+			    <a class="nav-link disabled" href="#">Servidor seleccionado : </a>
+			  </li>
+
+			  <li class="mr-auto">
+			  	<select class="form-control" id="sel_host">
+
+			  		{% for i in range( hosts | length ) %}
+			  			<option value='{{i}}'>{{hosts[i]}}</option>
+			  		{% endfor %}
+			  	</select>
+			  </li>
+			</ul>
+		</div>
+
+
+		<!-- Mini formulario buscador -->
+		<div class="col-12">
+			
+			<form action="javascript:void(0)">
+
+				<div class="form-group">
+					
+					<div class="row w-80">
+						<!--- Buscador input y select -->
+						<div class="col-lg-6">
+
+							<div class="row" id="box_input">
+								<div class="col-lg-8">
+									<input class="form-control"  type="text" name="search" placeholder="Buscar en ...">
+								</div>
+								<div class="col-lg-4" id="sel_servidor">
+									<select class="form-control">
+										<option>Todo</option>
+										<option>Received</option>
+										<option>Reject</option>
+									</select>									
+
+								</div>
+
+							</div>
+						</div>
+						<div class="col-lg-1" style="margin-left: -4%;">
+							<button class="btn btn-success">Buscar</button>
+						</div>
+						<div class="col-lg-2" style="margin-left: -2%;">
+							<button id="reload" onclick="update(true)" class="btn btn-success"><i class="icon ion-md-refresh"></i> Recargar logs</button>
+						</div>
+					</div>
+				
+				</div>
+
+			</form>
+
+		</div> 		
+		<div class="col-12">
+			<div id="alerta">
+			</div>
+		</div>
+		<!--- Tabla de contenidos -->
+		<div class="col-12">
+			
+			<div class="scroll">
+
+				<table class="table table-bordered table-hover" >
+ 					<thead class="thead-dark">
+						<tr>
+							{% for key in dic[0] %}
+								{% if key != 'id_host' %}
+									<th space="col">{{key}} </th>
+								{% endif %}
+							{% endfor %}
+											
+						</tr>
+					</thead>
+					
+					<tbody id="dataBody" >
+						{% for item in dic %}
+							<tr class="{{item['Status']}}">
+								{% for key in item %}
+								 	{% if key != 'id_host' %}
+										<td>{{item[key]}}</td>
+								 	{% endif %}
+								{% endfor %}
+							</tr>
+					    {% endfor %}
+					</tbody> 
+				</table>
+
+			</div>
+		</div>
+		<br>
+	</div>
+{% endblock %}

@@ -1,13 +1,25 @@
-from conf import *
+from conf import db
 from flask import Blueprint,render_template,request
-import json,os
+import os
 
 page_log = Blueprint('log',__name__,template_folder='templates')
 
-## Variables globales
-dir_hosts = get_hosts()
-dir_smtp  = get_smtp()
-key       = get_key()
+
+@page_log.route("/showLog")
+def showLogFull():
+	"""
+		Funcion para cargar show_full.html
+		Carga los logs sin ningun tipo de filtro
+	"""
+	data = db.getServidores()
+	hostname = str(data[0]['hostname'].split(".")[0])
+
+	contenido = os.listdir("Logs/"+hostname+"/")
+	file = open("Logs/"+hostname+"/mail.log")
+	aLines = [line.strip() for line in file.readlines()[::-1]]
+	return render_template('show_full.html',data=data,log=aLines,file_list=contenido)
+
+
 
 @page_log.route("/getLog",methods=['POST'])	
 def getLog():
@@ -18,12 +30,11 @@ def getLog():
 	Returns:
 		data : contiene la lista de logs de ese host 
 	"""
-	with open(dir_hosts,'r') as file:
-		data = json.load(file)	
+	data = db.getServidores()
 	r = request.form
 	pos =int(r['id'])
 	pos_file = int(r['log'])
-	hostname =data[pos]['Hostname'].split(".")[0]
+	hostname =data[pos]['hostname'].split(".")[0]
 	contenido = os.listdir("Logs/"+hostname+"/")
 	
 	file = open("Logs/"+hostname+"/"+contenido[pos_file])
