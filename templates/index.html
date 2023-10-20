@@ -3,9 +3,6 @@
 
 {% block div %}
 	<script type="text/javascript" src="{{url_for('static',filename='js/index.js')}}"></script>
-
-
-
 	<!-- Modal -->
 	{% if first == True %}
 		<div id="myModal" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -82,22 +79,21 @@
 
 			<div class="row">
 
-				<div class="col-6">
-					
+				<div class="col-sm-6 col-12">
 					<div class="card" style="width: 100%;">
 		  				<div class="card-body">
-		    				<h6 class="card-subtitle mb-2 text-muted">Servidores Actuales </h6>
+		    				<h6 class="card-subtitle mb-2 text-muted">Servidores Actuales</h6>
 		    				<p class="card-text text-center display-4">{{count}}</p>
 		  				</div>
 					</div>
 
 				</div>
 
-				<div class="col-6">
+				<div class="col-sm-6 col-12">
 					
 					<div class="card" style="width: 100%;">
 		  				<div class="card-body">
-		    				<h6 class="card-subtitle mb-2 text-muted">Ultima actualizacion </h6>
+		    				<h6 class="card-subtitle mb-2 text-muted">Ultima actualizacion</h6>
 		    				<p class="card-text text-center display-4">{{data[0]['fecha_act']}}</p>
 		  				</div>
 					</div>
@@ -109,7 +105,7 @@
 
 			<div class="col-12 mt-5">
 				<button onclick="addDomain()" class="btn btn-primary" >Agregar Servidor</button>
-				<button id="reload" onclick="updateAll()" class="btn btn-primary">Actualizar Datos</button>
+				<button id="reload" onclick="updateAll()" class="btn btn-primary">Descargar Datos</button>
 			</div>
 			<div class="col-12 mt-5">
 				<div id="alerta_datos">
@@ -125,19 +121,32 @@
 				      <th scope="col">Dominio</th>
 				      <th scope="col">IP</th>
 				      <th scope="col">Ultima actualizacion</th>
+				      <th scope="col"> <th>
+
 				    </tr>
 				  </thead>
 				  <tbody>
 				  	{% for i in range( data| length) %}
 				  		
-				  		<tr onclick="redirigir({{i}})" class="hosts">
-				  			<th scope="row"> {{i+1}} </th>
+				  		<tr  class="hosts">
+				  			<th onclick="redirigir({{i}})" scope="row"> {{i+1}} </th>
 			
-				  			<td id="hostname"> {{data[i]['hostname']}}</td>
-				  			<td id="ip"> {{data[i]['ip']}}</td>
-				  			<td> {{data[i]['fecha_act']}}</td>
+				  			<td onclick="redirigir({{i}})" id="hostname"> {{data[i]['hostname']}}</td>
+				  			<td onclick="redirigir({{i}})" id="ip"> {{data[i]['ip']}}</td>
+				  			<td onclick="redirigir({{i}})" > {{data[i]['fecha_act']}}</td>
+				  		
+				  			<td>
+
+				  				<div class="btn-group" role="group" >
+  									<button type="button" class="btn btn-success">Modificar</button>
+  									<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mConfirm" onclick="borrar('{{ data[i]['hostname'] }}')" >Eliminar</button>
+								</div>
+
+				  			<td>
+				  			
 				  		</tr>
 				  	{% endfor %}
+
 				  </tbody>
 				</table>
 			</div>
@@ -145,6 +154,26 @@
 
 		</div>
 
+		<!--- Modal de alerta ---->
+		<div class="modal fade" id="mConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Alerta</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        ¿Estas seguro de eliminar este elemento?
+		      </div>
+		      <div class="modal-footer" id="">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		        <button type="button" id="btn_confirm" class="btn btn-primary" onclick="borrar()">Si estoy seguro!</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 
 	</div>
 {% endblock %}

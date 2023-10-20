@@ -192,3 +192,65 @@ function updateAll() {
 	$("#alert_datos").hide()
 }
 
+
+function borrar(id){
+	const btn = document.getElementById("btn_confirm")
+	
+
+
+	btn.addEventListener("click",function(){
+
+	$.ajax({
+		async: true,
+		url:'/delDomain',
+		data:{'id':id},
+		type:'POST',
+		success: function(resp){
+			console.log(resp)
+
+
+			if(resp['status'] == 200){
+				html = '<div class="alert alert-success" role="alert">'
+  				html += "¡Servidor eliminado!" //+ dominio
+				html +='</div>'	
+				location.reload();
+			}else{
+				html = '<div class="alert alert-danger" role="alert">'
+  				html += "Ha ocurrido un error , porfavor vuelva a recargar la pagina "
+				html +='</div>'	
+			}
+			$("#mConfirm").modal("hide");
+			$("#alert_datos").fadeOut()
+			$("#reload").prop('disabled', false);
+			$("#alerta_datos").html(html)
+			$("#alert_datos").fadeIn()
+		},
+		beforeSend:function(){
+
+			$("#reload").prop('disabled', true);
+			html = '<div class="alert alert-warning" role="alert">'
+  			html +='<div class="spinner-border spinner-border-sm text-success" role="status">'
+			html +=  '<span class="sr-only">Loading...</span>'
+			html +='</div>'  			
+  			html += " Eliminando Servidor " //+ dominio
+			html +='</div>'		
+			
+			$("#alert_datos").fadeOut()
+			$("#alerta_datos").html(html)
+			$("#alerta_datos").fadeIn()
+		}
+
+		,
+		error : function(error){
+			html = '<div class="alert alert-danger" role="alert">'
+  			html += "Ha ocurrido un error al borrar , porfavor vuelva a recargar la pagina "
+			html +='</div>'		
+
+			$("#alerta_datos").html(html)
+		},
+	})
+
+
+
+	})
+}

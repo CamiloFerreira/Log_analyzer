@@ -4,7 +4,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from scp import SCPClient
 import pandas as pd
-import dns.resolver
 import json
 
 
@@ -67,8 +66,8 @@ def ProcesarLog(hostname,log="mail.log"):
     find_status = re.compile(r'.*status=([a-zA-Z0-9-_.]+) (.*)?')
     find_relay = re.compile(r'.*relay=([a-zA-Z0-9-._]+)\[(.*)\]:([0-9]+)')
     find_client = re.compile(r'.*client=([a-zA-Z0-9-._]+)\[(.*)\]')
-    find_time  = re.compile(r'.*' + hostname + ' ')
-    #find_date = re.compile(r'\w[\w.]+\s+\d.\s.\d.\d..\d.')
+    find_time  = re.compile(r'..\w .\d \d.:\d.:\d.')
+
     
     with open('Logs/'+hostname+"/"+log,"r") as f:
 
@@ -91,7 +90,8 @@ def ProcesarLog(hostname,log="mail.log"):
                 to = find_to.match(mline)
                 status = find_status.match(mline)
                 relay = find_relay.match(mline)
-                date = str(dateparser.parse(mline.split(hostname)[0].strip()))
+                time = find_time.match(mline)
+                date = str(dateparser.parse(time.group(0)))
                 if status != None : 
                     status = status.group(1)
                 else:
@@ -159,7 +159,7 @@ def SpamCheck(hostname,Log="mail.log"):
     find_result = re.compile(r'result: .* -')
     find_user = re.compile(r'user=.*,u')
     find_mid = re.compile(r'mid=<.*>')
-
+    #cont_frm = 0 
 
     spamd = "";user="";frm_text=""
     isSpam = False
@@ -169,7 +169,7 @@ def SpamCheck(hostname,Log="mail.log"):
         for mline in line:
             lm   = {}
             tim = find_time.findall(mline)
-            
+            date = ""
             if(len(tim) > 0 ) : 
                 tim = str(tim[0]).split(hostname)[0].strip()
                 date = str(dateparser.parse(tim))
@@ -202,18 +202,23 @@ def SpamCheck(hostname,Log="mail.log"):
                 lm['de'] = frm_text
                 lm['puntaje'] = "N/A"
                 lm['estado'] = err
-                lm['detalles'] = rcpt ## Quede aqui
+                lm['detalle'] = rcpt ## Quede aqui
                 data.append(lm)
 
 
             if(isSpam):
-                frm = find_from.findall(mline)
-                if (len(frm) == 0):
-                    frm = ['']
-                last = len(data)-1
 
-                data[last]['de'] = frm[0]
-                isSpam = False
+                if (mline.find("postfix/qmgr") > -1 ):                
+                    frm = find_from.findall(mline)
+                #print(frm,cont_frm)
+                  
+                    if (len(frm) == 0):
+                       frm = ['']
+
+                    last = len(data)-1
+
+                    data[last]['de'] = frm[0]
+                    isSpam = False
 
 
             #print(mline)
@@ -226,12 +231,11 @@ def SpamCheck(hostname,Log="mail.log"):
                 user  = find_user.findall(mline)[0][:-2].split("user=")[1]
 
 
-            if( len(spamd) > 0  ):
-                #print(mline)
+            if( len(spamd) > 0  and isSpam == False):
                 frm = find_from.findall(mline)
 
                 lm['fecha'] = date
-                lm['para'] = user+"@"+host_full
+                lm['para'] = user
                 
                 
                 if(spamd[0] == "."):
@@ -258,6 +262,7 @@ def SpamCheck(hostname,Log="mail.log"):
                 spamd = ""
                 user  = ""
                 isSpam = True
+
 
         return data[::-1]
 
@@ -393,11 +398,16 @@ def SendMail(host,user,passwd,from_,to,subject,content):
         return {'success':'ERORR',"msj":"Usuario o clave incorrecto!"}
 
 if __name__ == '__main__':
-    #DescargarLog("gomail.cl","179.43.126.3","root","mi29befiBU06gurobi")
-    #print(ProcesarLog("gomail.cl","mail.log"))
-    for spam in SpamCheck("gomailer.tk"):
+    #DescargarLog("fhsecurity.cl","149.50.133.152","root","UW3kpZhs8uvu")
+    #data_log = ProcesarLog("fhsecurity.cl","mail.log")
 
+
+    #df = pd.DataFrame(data_log)
+    #df.to_excel("Logs/cyberpruebas_log.xlsx",index=False)
+
+    for spam in SpamCheck("fhsecurity.cl"):
         print(spam)
+        print(type(spam['detalle']))
 #AlertasVirus("gomailer.tk")
 #for data in SpamCheck("gomailer.tk"):
 #   print(data)

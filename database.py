@@ -38,7 +38,7 @@ class Database:
 													 de varchar,
 													 puntaje varchar,
 													 estado varchar,
-													 detalles varchar
+													 detalle varchar
 													 )
 		'''
 		self._cur.execute(query)
@@ -84,7 +84,7 @@ class Database:
 									 de,
 									 puntaje,
 									 estado,
-									 detalles) VALUES (?,?,?,?,?,?,?)
+									 detalle) VALUES (?,?,?,?,?,?,?)
 		'''
 
 		for row in data:
@@ -152,7 +152,7 @@ class Database:
 		rows = self._cur.fetchall()
 
 
-		keys = ['id_host','fecha','para','de','puntaje','estado','detalles']
+		keys = ['id_host','fecha','para','de','puntaje','estado','detalle']
 	
 		for row in rows:
 			dic = {}
@@ -242,6 +242,35 @@ class Database:
 			self.__con.commit()
 		except:
 			pass
+	def deleteServer(self,hostname):
+		try:
+
+			query = f"SELECT id_host FROM Servidor where hostname='{hostname}'"
+			self._cur.execute(query)
+
+			rows = self._cur.fetchall()		
+			if(len(rows) > 0):
+
+				id_host = int(rows[0][0])
+				query = f"DELETE FROM Servidor where id_host='{id_host}'"
+				self._cur.execute(query)
+				self.__con.commit()
+
+				query = f"DELETE FROM Estados where id_host='{id_host}'"
+				self._cur.execute(query)
+				self.__con.commit()
+
+				query = f"DELETE FROM Alertas_Spam where id_host='{id_host}'"
+				self._cur.execute(query)
+				self.__con.commit()
+
+				query = f"DELETE FROM Alertas_Virus where id_host='{id_host}'"
+				self._cur.execute(query)
+				self.__con.commit()
+
+		except:
+			pass
+
 	#--------- Getter y Setters ----------#
 	@property
 	def id_host(self):
@@ -265,9 +294,9 @@ class Database:
 if __name__ == '__main__':
 	
 	db = Database()
-	db.createSpam()
-	db.createVirus()
-	db.createEstados()
-	db.createServidores()
-
+	# db.createSpam()
+	# db.createVirus()
+	# db.createEstados()
+	# db.createServidores()
+	#db.deleteServer("fhsecurity.cl")
 

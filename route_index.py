@@ -102,3 +102,19 @@ def addDomain():
 
 
 	return redirect("/")
+
+
+
+@page_home.route("/delDomain",methods=['POST'])
+def delDomain():
+	'''
+		Agrega los nuevos dominios de smtp 
+		al json 
+
+	'''
+	r = request.form
+
+	db.deleteServer(r['id'])
+
+
+	return {'success':'OK','status':200} 	
