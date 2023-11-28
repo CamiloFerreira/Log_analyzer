@@ -47,7 +47,7 @@ def virusCheck():
 			db.deleteVirus(id_host)
 			if(virus[0]['para'] != "" and virus[0]['de'] !=""):
 				for v in virus:
-					s['id_host'] = 0		
+					v['id_host'] = 0		
 				db.insertarVirus(virus)
 			
 		return {'success':'OK','status':200,'data':AlertasVirus(hosts[id_host])} 
@@ -76,7 +76,7 @@ def inboxLog(tipo="spam"):
 			db.deleteVirus(0)
 			if(virus[0]['para'] != "" and virus[0]['de'] !=""):
 				for v in virus:
-					s['id_host'] = 0		
+					v['id_host'] = 0		
 				db.insertarVirus(virus)
 
 		return render_template('analyze_virus.html',url=request.url_root,dic=virus,hosts=hosts)
